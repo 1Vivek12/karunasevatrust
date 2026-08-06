@@ -1,0 +1,6 @@
+{
+  "name": "Karuna Seva Trust - करुणा सेवा ट्रस्ट",
+  "description": "Official website for Karuna Seva Trust NGO - Seva Hi Sabse Bada Dharm Hai. Food, health, education, clothing distribution and tree plantation initiative.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
