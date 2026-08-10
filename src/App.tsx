@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ActiveTab, ServiceCard, DonationReceipt } from './types';
+import { AnimatePresence } from 'motion/react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { StatsBar } from './components/StatsBar';
@@ -14,6 +15,7 @@ import { ContactSection } from './components/ContactSection';
 import { DonateModal } from './components/DonateModal';
 import { ReceiptModal } from './components/ReceiptModal';
 import { Footer } from './components/Footer';
+import { SplashScreen } from './components/SplashScreen';
 import { RECENT_DONORS, TRUST_INFO } from './data/ngoData';
 import { Heart, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 
@@ -23,6 +25,14 @@ export default function App() {
   const [selectedWork, setSelectedWork] = useState<ServiceCard | null>(null);
   const [generatedReceipt, setGeneratedReceipt] = useState<DonationReceipt | null>(null);
   const [language, setLanguage] = useState<'hi' | 'en'>('hi');
+  const [isSplashVisible, setIsSplashVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsSplashVisible(false);
+    }, 2500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleOpenDonateModal = () => {
     setIsDonateModalOpen(true);
@@ -38,7 +48,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8faf7] text-slate-800 flex flex-col font-['Noto_Sans_Devanagari',sans-serif] selection:bg-emerald-200 selection:text-emerald-900">
+    <>
+      {/* Cinematic Splash Screen */}
+      <AnimatePresence mode="wait">
+        {isSplashVisible && <SplashScreen />}
+      </AnimatePresence>
+
+      <div className="min-h-screen bg-[#f8faf7] text-slate-800 flex flex-col font-['Noto_Sans_Devanagari',sans-serif] selection:bg-emerald-200 selection:text-emerald-900">
       
       {/* Sticky Navigation Header */}
       <Navbar
@@ -193,6 +209,7 @@ export default function App() {
         language={language}
       />
 
-    </div>
+      </div>
+    </>
   );
 }

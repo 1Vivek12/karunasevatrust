@@ -289,7 +289,7 @@ export const TRUSTEES_DATA: TrusteeMember[] = [
     id: 't1',
     name: 'श्री विजय प्रकाश शर्मा',
     role: 'मुख्य संस्थापक एवं अध्यक्ष',
-    image: '/assets/founder.png',
+    image: '/assets/founder.jpg',
     bio: 'विगत 25 वर्षों से समाज सेवा में समर्पित। करुणा सेवा ट्रस्ट की स्थापना निर्धन उत्थान के उद्देश्य से की।'
   },
   {

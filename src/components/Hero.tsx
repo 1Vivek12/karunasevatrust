@@ -112,7 +112,7 @@ export const Hero: React.FC<HeroProps> = ({
                 {/* Fallback Background Pulse Skeleton */}
                 <div className="absolute inset-0 bg-emerald-950/20 animate-pulse -z-10" />
                 <img 
-                  src="/assets/founder.png" 
+                  src="/assets/founder.jpg" 
                   alt="Founder of Karuna Seva Trust" 
                   className="w-full h-full object-cover object-center group-hover:scale-102 transition duration-500"
                   loading="eager"
