@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { TRUST_INFO, BANK_DETAILS } from '../data/ngoData';
 import { DonationFormData, DonationReceipt } from '../types';
-import { X, Heart, ShieldCheck, QrCode, CreditCard, Building2, CheckCircle2, Download, Copy, ArrowRight, ArrowLeft } from 'lucide-react';
+import { X, Heart, ShieldCheck, CheckCircle2, Download, Copy, ArrowRight, ArrowLeft } from 'lucide-react';
+import { PaymentHub } from './PaymentHub';
 
 interface DonateModalProps {
   isOpen: boolean;
@@ -302,92 +303,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                   <label className="text-sm font-bold text-slate-800">
                     {language === 'hi' ? '4. भुगतान माध्यम (Payment Method):' : '4. Payment Method:'}
                   </label>
-
-                  <div className="grid grid-cols-3 gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setFormData({ ...formData, paymentMethod: 'upi' })}
-                      className={`p-3 rounded-xl border text-xs font-bold flex flex-col items-center gap-1 transition ${
-                        formData.paymentMethod === 'upi'
-                          ? 'bg-emerald-50 border-emerald-600 text-emerald-900 ring-2 ring-emerald-600/20'
-                          : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
-                      }`}
-                    >
-                      <QrCode className="w-5 h-5 text-emerald-700" />
-                      <span>UPI QR Code</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setFormData({ ...formData, paymentMethod: 'card' })}
-                      className={`p-3 rounded-xl border text-xs font-bold flex flex-col items-center gap-1 transition ${
-                        formData.paymentMethod === 'card'
-                          ? 'bg-emerald-50 border-emerald-600 text-emerald-900 ring-2 ring-emerald-600/20'
-                          : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
-                      }`}
-                    >
-                      <CreditCard className="w-5 h-5 text-emerald-700" />
-                      <span>Card / NetBanking</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => setFormData({ ...formData, paymentMethod: 'qr' })}
-                      className={`p-3 rounded-xl border text-xs font-bold flex flex-col items-center gap-1 transition ${
-                        formData.paymentMethod === 'qr'
-                          ? 'bg-emerald-50 border-emerald-600 text-emerald-900 ring-2 ring-emerald-600/20'
-                          : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
-                      }`}
-                    >
-                      <Building2 className="w-5 h-5 text-emerald-700" />
-                      <span>बैंक ट्रांसफर</span>
-                    </button>
-                  </div>
-
-                  {formData.paymentMethod === 'upi' && (
-                    <div className="bg-emerald-50/80 border border-emerald-200 p-4 rounded-2xl flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
-                      <div className="bg-white p-2 rounded-xl shadow-xs border border-emerald-200 shrink-0">
-                        <svg className="w-28 h-28" viewBox="0 0 100 100" fill="none">
-                          <rect width="100" height="100" fill="white" />
-                          <rect x="10" y="10" width="25" height="25" fill="#15803d" />
-                          <rect x="15" y="15" width="15" height="15" fill="white" />
-                          <rect x="18" y="18" width="9" height="9" fill="#15803d" />
-                          <rect x="65" y="10" width="25" height="25" fill="#15803d" />
-                          <rect x="70" y="15" width="15" height="15" fill="white" />
-                          <rect x="73" y="18" width="9" height="9" fill="#15803d" />
-                          <rect x="10" y="65" width="25" height="25" fill="#15803d" />
-                          <rect x="15" y="70" width="15" height="15" fill="white" />
-                          <rect x="18" y="73" width="9" height="9" fill="#15803d" />
-                          <path d="M40 10h15v5H40zM40 25h10v10H40zM55 20h10v15H55zM40 45h45v5H40zM10 45h20v10H10zM45 55h15v10H45zM65 55h20v20H65zM40 70h15v20H40zM70 80h15v10H70z" fill="#15803d" />
-                        </svg>
-                      </div>
-                      
-                      <div className="space-y-1 text-xs text-slate-700">
-                        <p className="font-extrabold text-emerald-900 text-sm">
-                          UPI ID: <span className="text-amber-700">{BANK_DETAILS.upiId}</span>
-                        </p>
-                        <p>PhonePe, GPay, Paytm, BHIM ऐप से QR स्कैन करें।</p>
-                        <button
-                          type="button"
-                          onClick={() => copyToClipboard(BANK_DETAILS.upiId)}
-                          className="inline-flex items-center gap-1 text-xs font-bold text-emerald-800 bg-emerald-200/60 hover:bg-emerald-200 px-2.5 py-1 rounded-lg mt-1 transition"
-                        >
-                          <Copy className="w-3 h-3" />
-                          <span>{copiedText ? 'कॉपी हो गया!' : 'UPI ID कॉपी करें'}</span>
-                        </button>
-                      </div>
-                    </div>
-                  )}
-
-                  {formData.paymentMethod === 'qr' && (
-                    <div className="bg-slate-50 border border-slate-200 p-3.5 rounded-xl text-xs space-y-1">
-                      <p className="font-bold text-slate-900">{BANK_DETAILS.bankName}</p>
-                      <p>खाता नाम: <strong>{BANK_DETAILS.accountName}</strong></p>
-                      <p>खाता संख्या: <strong className="font-mono text-emerald-800 text-sm">{BANK_DETAILS.accountNumber}</strong></p>
-                      <p>IFSC कोड: <strong className="font-mono text-amber-800">{BANK_DETAILS.ifscCode}</strong></p>
-                      <p>शाखा: {BANK_DETAILS.branch}</p>
-                    </div>
-                  )}
+                  <PaymentHub language={language} amount={formData.amount} />
                 </div>
 
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">

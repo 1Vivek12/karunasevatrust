@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TRUST_INFO, BANK_DETAILS } from '../data/ngoData';
 import { MapPin, Phone, Mail, Clock, Copy, Send, CheckCircle2, MessageSquare, Building2, QrCode, Heart } from 'lucide-react';
+import { PaymentHub } from './PaymentHub';
 
 interface ContactSectionProps {
   language: 'hi' | 'en';
@@ -84,70 +85,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ language, onOpen
           </div>
         </div>
 
-        {/* Bank Transfer Details Section (Full Card) */}
-        <div className="bg-gradient-to-r from-emerald-900 to-green-950 text-white p-8 rounded-3xl shadow-xl space-y-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-emerald-800 pb-4">
-            <div>
-              <span className="text-amber-400 font-bold text-xs uppercase tracking-wider">
-                प्रत्यक्ष बैंक खाता ट्रांसफर (Direct Bank Transfer)
-              </span>
-              <h3 className="text-2xl font-bold font-['Noto_Sans_Devanagari']">
-                करुणा सेवा ट्रस्ट बैंक खाता विवरण
-              </h3>
-            </div>
-            <a
-              href={`https://wa.me/919876543210?text=${encodeURIComponent('नमस्ते, मैं करुणा सेवा ट्रस्ट में दान के संबंध में संपर्क करना चाहता हूँ।')}`}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-5 py-2.5 rounded-full text-xs flex items-center gap-2 transition"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>व्हाट्सएप पर सहायता पाएँ</span>
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-            
-            <div className="bg-emerald-800/80 p-4 rounded-xl space-y-1 relative">
-              <p className="text-emerald-300 font-bold">बैंक का नाम:</p>
-              <p className="text-white font-semibold">{BANK_DETAILS.bankName}</p>
-            </div>
-
-            <div className="bg-emerald-800/80 p-4 rounded-xl space-y-1">
-              <p className="text-emerald-300 font-bold">खाताधारक नाम:</p>
-              <p className="text-white font-semibold">{BANK_DETAILS.accountName}</p>
-            </div>
-
-            <div className="bg-emerald-800/80 p-4 rounded-xl space-y-1 flex items-center justify-between">
-              <div>
-                <p className="text-emerald-300 font-bold">खाता संख्या (A/c No):</p>
-                <p className="text-amber-300 font-mono text-sm font-bold">{BANK_DETAILS.accountNumber}</p>
-              </div>
-              <button
-                onClick={() => handleCopy(BANK_DETAILS.accountNumber, 'acc')}
-                className="p-1.5 rounded bg-emerald-700 hover:bg-emerald-600 text-white text-[10px]"
-                title="Copy A/c No"
-              >
-                {copiedKey === 'acc' ? 'Copied' : <Copy className="w-3.5 h-3.5" />}
-              </button>
-            </div>
-
-            <div className="bg-emerald-800/80 p-4 rounded-xl space-y-1 flex items-center justify-between">
-              <div>
-                <p className="text-emerald-300 font-bold">IFSC कोड:</p>
-                <p className="text-amber-300 font-mono text-sm font-bold">{BANK_DETAILS.ifscCode}</p>
-              </div>
-              <button
-                onClick={() => handleCopy(BANK_DETAILS.ifscCode, 'ifsc')}
-                className="p-1.5 rounded bg-emerald-700 hover:bg-emerald-600 text-white text-[10px]"
-                title="Copy IFSC"
-              >
-                {copiedKey === 'ifsc' ? 'Copied' : <Copy className="w-3.5 h-3.5" />}
-              </button>
-            </div>
-
-          </div>
-        </div>
+        {/* Bank Transfer Details Section (Full Card replaced with PaymentHub) */}
+        <PaymentHub language={language} />
 
         {/* Contact Form & Map Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">

@@ -324,11 +324,11 @@ export const RECENT_DONORS: RecentDonor[] = [
 ];
 
 export const BANK_DETAILS = {
-  bankName: "State Bank of India (भारतीय स्टेट बैंक)",
-  accountName: "KARUNA SEVA TRUST",
-  accountNumber: "389201004921",
-  ifscCode: "SBIN0001234",
-  branch: "Main Branch, Gandhi Nagar, New Delhi",
-  upiId: "karunaseva@sbi",
+  bankName: "Punjab National Bank (पंजाब नेशनल बैंक)",
+  accountName: "ABHINAV KUMAR / KARUNA SEVA TRUST",
+  accountNumber: "4894001500006683",
+  ifscCode: "PUNB0489400",
+  branch: "Rapti Nagar Chauraha, Gorakhpur, UP",
+  upiId: "4894001500006683@pnb",
   qrNote: "किसी भी UPI ऐप (GPay, PhonePe, Paytm, BHIM) से QR कोड स्कैन करके दान करें"
 };
