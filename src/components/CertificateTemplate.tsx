@@ -43,13 +43,13 @@ export const CertificateTemplate: React.FC<CertificateTemplateProps> = ({
 
         {/* Logo Watermark Background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
-          <img src="/assets/logo.png" alt="Watermark" className="w-[450px] h-[450px] object-contain" />
+          <img src="/assets/splash-logo.png" alt="Watermark" className="w-[450px] h-[450px] object-contain" />
         </div>
 
         {/* Top Header Section */}
         <div className="text-center space-y-2 z-10">
           <div className="flex justify-center items-center gap-3">
-            <img src="/assets/logo.png" alt="Karuna Seva Trust Logo" className="w-20 h-20 object-contain shadow-xs rounded-full" />
+            <img src="/assets/splash-logo.png" alt="Karuna Seva Trust Logo" className="w-20 h-20 object-contain shadow-xs rounded-full" />
             <div className="text-left">
               <h1 className="text-3xl font-black text-[#064e3b] font-['Noto_Sans_Devanagari'] tracking-wide">
                 करुणा सेवा ट्रस्ट (पंजीकृत न्यास)

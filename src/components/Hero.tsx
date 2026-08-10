@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TRUST_INFO } from '../data/ngoData';
-import { Heart, Users, Sparkles, Leaf, ShieldCheck, HeartHandshake } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Heart, Users, Sparkles, Leaf, ShieldCheck, HeartHandshake, X, ZoomIn } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface HeroProps {
   onOpenDonateModal: () => void;
@@ -14,6 +14,8 @@ export const Hero: React.FC<HeroProps> = ({
   onOpenVolunteer,
   language
 }) => {
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#f2f9f4] via-[#f8faf7] to-white py-10 lg:py-16 border-b border-emerald-50">
       {/* Decorative background glows */}
@@ -106,19 +108,26 @@ export const Hero: React.FC<HeroProps> = ({
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-6 grid grid-cols-12 gap-4"
           >
-            {/* Main Founder Card */}
-            <div className="col-span-12 md:col-span-8 relative overflow-hidden rounded-3xl bg-emerald-950/80 backdrop-blur-md border border-white/10 p-4 shadow-xl flex flex-col group">
+            {/* Main Founder Card - Clickable */}
+            <div
+              onClick={() => setIsLightboxOpen(true)}
+              className="col-span-12 md:col-span-8 relative overflow-hidden rounded-3xl bg-emerald-950/80 backdrop-blur-md border border-white/10 p-4 shadow-xl flex flex-col group cursor-pointer"
+            >
               <div className="relative w-full overflow-hidden rounded-2xl aspect-[16/9] md:aspect-[16/10] border-2 border-[#D4AF37]/30 bg-emerald-950/20">
                 {/* Fallback Background Pulse Skeleton */}
                 <div className="absolute inset-0 bg-emerald-950/20 animate-pulse -z-10" />
                 <img 
                   src="/assets/founder.jpg" 
                   alt="Founder of Karuna Seva Trust" 
-                  className="w-full h-full object-cover object-center group-hover:scale-102 transition duration-500"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition duration-500"
                   loading="eager"
                   fetchPriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                {/* Zoom hint on hover */}
+                <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-sm text-white p-2 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ZoomIn className="w-5 h-5" />
+                </div>
               </div>
               <div className="mt-3 text-white space-y-1">
                 <h3 className="font-extrabold text-lg font-['Noto_Sans_Devanagari'] tracking-wide">
@@ -169,6 +178,37 @@ export const Hero: React.FC<HeroProps> = ({
 
         </div>
       </div>
+
+      {/* Founder Image Lightbox Modal */}
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+            onClick={() => setIsLightboxOpen(false)}
+          >
+            <button
+              onClick={() => setIsLightboxOpen(false)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition z-10"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              src="/assets/founder.jpg"
+              alt="Founder of Karuna Seva Trust"
+              className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

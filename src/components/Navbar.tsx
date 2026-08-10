@@ -87,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Custom NGO Logo Asset with high-DPI scaling */}
           <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-emerald-500/30 shadow-md group-hover:scale-105 transition-transform shrink-0">
             <img 
-              src="/assets/logo.png" 
+              src="/assets/splash-logo.png" 
               alt="Karuna Seva Trust Logo"
               className="w-full h-full object-cover object-center"
               style={{ imageRendering: 'auto' }}

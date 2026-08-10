@@ -160,7 +160,7 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
                     size={160}
                     level="Q"
                     imageSettings={{
-                      src: "/assets/logo.png",
+                      src: "/assets/splash-logo.png",
                       x: undefined,
                       y: undefined,
                       height: 32,
