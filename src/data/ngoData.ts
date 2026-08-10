@@ -329,6 +329,6 @@ export const BANK_DETAILS = {
   accountNumber: "4894001500006683",
   ifscCode: "PUNB0489400",
   branch: "Rapti Nagar Chauraha, Gorakhpur, UP",
-  upiId: "4894001500006683@pnb",
+  upiId: "karunasevatrust@axl",
   qrNote: "किसी भी UPI ऐप (GPay, PhonePe, Paytm, BHIM) से QR कोड स्कैन करके दान करें"
 };

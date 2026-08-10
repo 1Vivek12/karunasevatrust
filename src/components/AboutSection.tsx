@@ -2,6 +2,7 @@ import React from 'react';
 import { TRUST_INFO, TRUSTEES_DATA } from '../data/ngoData';
 import { ShieldCheck, Heart, Award, FileText, CheckCircle, Users } from 'lucide-react';
 import { motion } from 'motion/react';
+import { LegalCompliance } from './LegalCompliance';
 
 interface AboutSectionProps {
   onOpenDonate: () => void;
@@ -110,6 +111,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate, langua
             </div>
           </div>
         </div>
+
+        {/* Legal Compliance & Trust Registration Details */}
+        <LegalCompliance language={language} />
 
         {/* Trustees & Leadership Team */}
         <div className="space-y-8 pt-4">

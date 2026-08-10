@@ -164,9 +164,11 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Copyright Strip */}
         <div className="pt-6 border-t border-emerald-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-emerald-400">
           <p>© {new Date().getFullYear()} {TRUST_INFO.nameHi}. सर्वाधिकार सुरक्षित।</p>
-          <div className="flex items-center gap-4 text-[11px]">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[11px]">
             <span>पंजीयन सं: {TRUST_INFO.regNo}</span>
-            <span>•</span>
+            <span className="hidden sm:inline">•</span>
+            <span className="font-mono text-emerald-500/80">e-Stamp: IN-UP61947604089839Y</span>
+            <span className="hidden sm:inline">•</span>
             <span>#SevaParmodharma</span>
           </div>
         </div>
