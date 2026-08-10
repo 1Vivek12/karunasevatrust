@@ -28,8 +28,12 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 1: About Trust */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-emerald-700 flex items-center justify-center text-white shrink-0 shadow-md">
-                <Heart className="w-5 h-5 fill-white" />
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-emerald-500/20 shrink-0 shadow-md">
+                <img 
+                  src="/assets/logo.png" 
+                  alt="NGO Logo" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-black text-white font-['Noto_Sans_Devanagari'] leading-none">
@@ -63,37 +67,37 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button onClick={() => handleNavClick('home')} className="hover:text-amber-300 flex items-center gap-1 transition">
+                <button onClick={() => handleNavClick('home')} className="hover:text-amber-300 flex items-center gap-1 transition min-h-[32px]">
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>मुख्य पृष्ठ (Home)</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('about')} className="hover:text-amber-300 flex items-center gap-1 transition">
+                <button onClick={() => handleNavClick('about')} className="hover:text-amber-300 flex items-center gap-1 transition min-h-[32px]">
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>हमारे बारे में (About Us)</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('works')} className="hover:text-amber-300 flex items-center gap-1 transition">
+                <button onClick={() => handleNavClick('works')} className="hover:text-amber-300 flex items-center gap-1 transition min-h-[32px]">
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>हमारे कार्य (Our Works)</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('activities')} className="hover:text-amber-300 flex items-center gap-1 transition">
+                <button onClick={() => handleNavClick('activities')} className="hover:text-amber-300 flex items-center gap-1 transition min-h-[32px]">
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>गतिविधियाँ (Activities)</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('gallery')} className="hover:text-amber-300 flex items-center gap-1 transition">
+                <button onClick={() => handleNavClick('gallery')} className="hover:text-amber-300 flex items-center gap-1 transition min-h-[32px]">
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>फोटो गैलरी (Gallery)</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('volunteer')} className="hover:text-amber-300 flex items-center gap-1 transition">
+                <button onClick={() => handleNavClick('volunteer')} className="hover:text-amber-300 flex items-center gap-1 transition min-h-[32px]">
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>स्वयंसेवक बनें (Volunteer)</span>
                 </button>
@@ -104,7 +108,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Col 3: Core Works */}
           <div className="space-y-3">
             <h4 className="text-white font-bold text-base font-['Noto_Sans_Devanagari'] border-b border-emerald-800 pb-2">
-              प्रमुख सेवा अभियान
+               प्रमुख सेवा अभियान
             </h4>
             <ul className="space-y-2 text-xs text-emerald-200">
               <li>• भोजन सेवा (अन्नपूर्ण रसोई)</li>
@@ -136,21 +140,21 @@ export const Footer: React.FC<FooterProps> = ({
               </p>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col gap-2">
               <button
                 onClick={() => { setActiveTab('volunteer'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                className="w-full bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-600 font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm"
+                className="w-full bg-emerald-900/40 hover:bg-emerald-900/60 text-emerald-100 border border-emerald-700/50 font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm min-h-[44px]"
               >
-                <Users className="w-5 h-5 text-emerald-700" aria-hidden="true" />
+                <Users className="w-5 h-5 text-emerald-400" aria-hidden="true" />
                 <span>{language === 'hi' ? 'स्वयंसेवक बनें' : 'Join Us'}</span>
               </button>
               <button
                 onClick={onOpenDonateModal}
                 aria-haspopup="dialog"
-                className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-2.5 rounded-xl text-xs shadow transition flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full bg-gradient-to-r from-emerald-600 to-[#D4AF37] hover:from-emerald-700 hover:to-[#C5A028] text-white font-black py-3 rounded-xl text-sm shadow transition flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
               >
-                <Heart className="w-4 h-4 fill-slate-950" aria-hidden="true" />
-                <span>ऑनलाइन दान करें (80G Tax Free)</span>
+                <Heart className="w-4 h-4 fill-white" aria-hidden="true" />
+                <span>{language === 'hi' ? 'ऑनलाइन दान करें' : 'Donate Now (80G Tax Free)'}</span>
               </button>
             </div>
           </div>

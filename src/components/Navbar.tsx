@@ -79,21 +79,19 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Main Header Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         
-        {/* Logo Section (Exactly matching screenshot) */}
+        {/* Logo Section */}
         <div 
           onClick={() => handleNavClick('home')}
           className="flex items-center gap-3 cursor-pointer group select-none"
         >
-          {/* Custom NGO Logo Graphic */}
-          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-emerald-600 to-green-700 flex items-center justify-center p-2 shadow-lg shadow-emerald-700/20 group-hover:scale-105 transition-transform">
-            <div className="relative flex items-center justify-center text-white">
-              {/* Hands holding seedling & heart emblem */}
-              <svg className="w-8 h-8 sm:w-9 sm:h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="rgba(255,255,255,0.25)" stroke="#ffffff" />
-                <path d="M12 6v6m-3-3l3-3 3 3" stroke="#ffffff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                <circle cx="12" cy="12" r="9" stroke="rgba(255,255,255,0.4)" strokeDasharray="2 2" />
-              </svg>
-            </div>
+          {/* Custom NGO Logo Asset with high-DPI scaling */}
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-emerald-500/30 shadow-md group-hover:scale-105 transition-transform shrink-0">
+            <img 
+              src="/assets/logo.png" 
+              alt="Karuna Seva Trust Logo"
+              className="w-full h-full object-cover object-center"
+              style={{ imageRendering: 'auto' }}
+            />
           </div>
 
           <div>
@@ -131,21 +129,22 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Right CTA Button (Donate Now - Exact dark green with heart) */}
+        {/* Right CTA Button (Volunteer followed by Donate Now) */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Volunteer Button (Join) */}
+          {/* Volunteer Button (Ghost button with glassmorphism border-emerald-600/30) */}
           <button
             onClick={() => { setActiveTab('volunteer'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="hidden xl:flex bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-600 font-extrabold text-sm px-4 py-2 rounded-full shadow-sm hover:shadow transition-all items-center gap-2 cursor-pointer group"
+            className="hidden xl:flex bg-emerald-50/20 hover:bg-emerald-50/50 backdrop-blur-xs text-emerald-800 border border-emerald-600/30 font-extrabold text-sm px-5 min-h-[44px] rounded-full shadow-xs hover:shadow transition-all items-center gap-2 cursor-pointer group"
           >
             <Users className="w-4 h-4 text-emerald-700 group-hover:scale-110 transition-transform" aria-hidden="true" />
             <span>{language === 'hi' ? 'स्वयंसेवक बनें' : 'Join Us'}</span>
           </button>
-          {/* Donate Button */}
+          
+          {/* Donate Button (Primary Accent Emerald/Gold gradient button) */}
           <button
             onClick={onOpenDonateModal}
             aria-haspopup="dialog"
-            className="bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-bold px-4 sm:px-6 py-2.5 rounded-full shadow-md shadow-emerald-800/20 hover:shadow-lg transition-all flex items-center gap-2 group transform active:scale-95 cursor-pointer text-sm sm:text-base"
+            className="bg-gradient-to-r from-emerald-700 via-emerald-800 to-[#D4AF37] hover:from-emerald-800 hover:to-[#C5A028] text-white font-extrabold px-5 sm:px-6 min-h-[44px] rounded-full shadow-md shadow-emerald-800/20 hover:shadow-lg transition-all flex items-center gap-2 group transform active:scale-95 cursor-pointer text-sm sm:text-base"
           >
             <Heart className="w-4 h-4 fill-white text-white group-hover:scale-110 transition-transform" aria-hidden="true" />
             <span>{language === 'hi' ? 'दान करें' : 'Donate Now'}</span>
@@ -154,7 +153,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 transition"
+            className="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 transition min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -191,11 +190,12 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setActiveTab('volunteer');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="w-full bg-white hover:bg-emerald-50 text-emerald-800 border-2 border-emerald-600 font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm"
+              className="w-full bg-emerald-50/20 text-emerald-800 border border-emerald-600/30 font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 shadow-xs min-h-[44px]"
             >
               <Users className="w-5 h-5 text-emerald-700" aria-hidden="true" />
               <span>{language === 'hi' ? 'स्वयंसेवक बनें' : 'Join Us'}</span>
             </button>
+            
             {/* Donate Button */}
             <button
               onClick={() => {
@@ -203,7 +203,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onOpenDonateModal();
               }}
               aria-haspopup="dialog"
-              className="w-full bg-emerald-700 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-md"
+              className="w-full bg-gradient-to-r from-emerald-700 via-emerald-800 to-[#D4AF37] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-md min-h-[44px]"
             >
               <Heart className="w-5 h-5 fill-white text-white" aria-hidden="true" />
               <span>{language === 'hi' ? 'दान करें (Donate Now)' : 'Donate Now'}</span>

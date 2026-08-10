@@ -1,6 +1,7 @@
 import React from 'react';
 import { TRUST_INFO, TRUSTEES_DATA } from '../data/ngoData';
 import { ShieldCheck, Heart, Award, FileText, CheckCircle, Users } from 'lucide-react';
+import { motion } from 'motion/react';
 
 interface AboutSectionProps {
   onOpenDonate: () => void;
@@ -111,40 +112,47 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate, langua
         </div>
 
         {/* Trustees & Leadership Team */}
-        <div className="space-y-6 pt-4">
+        <div className="space-y-8 pt-4">
           <div className="text-center space-y-2">
             <h2 className="text-3xl font-extrabold text-slate-900 font-['Noto_Sans_Devanagari']">
               {language === 'hi' ? 'न्यास प्रबंधक एवं हमारी टीम' : 'Board of Trustees & Team'}
             </h2>
-            <p className="text-slate-600 text-sm max-w-xl mx-auto">
+            <p className="text-slate-600 text-sm max-w-xl mx-auto font-['Noto_Sans_Devanagari']">
               अनुभवी, निःस्वार्थ और समर्पित न्यासियों का समूह जो बिना किसी पारिश्रमिक के केवल समाज कल्याण हेतु कार्यरत हैं।
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {TRUSTEES_DATA.map((member) => (
-              <div
+              <motion.div
                 key={member.id}
-                className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition text-center p-6 space-y-3"
+                whileHover={{ y: -6, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="bg-white rounded-3xl overflow-hidden border border-emerald-500/10 hover:border-amber-500/20 shadow-sm hover:shadow-lg transition-all text-center p-6 space-y-4 flex flex-col items-center justify-between"
               >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-24 h-24 rounded-full object-cover mx-auto ring-4 ring-emerald-100"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <h4 className="font-bold text-slate-900 text-lg font-['Noto_Sans_Devanagari']">
-                    {member.name}
-                  </h4>
-                  <p className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full inline-block mt-1">
-                    {member.role}
+                <div className="relative w-28 h-28 rounded-2xl overflow-hidden border-2 border-amber-500/30 p-1 bg-gradient-to-tr from-amber-400/20 to-emerald-500/20 shadow-inner">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full rounded-xl object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                
+                <div className="space-y-2 w-full">
+                  <div>
+                    <h4 className="font-extrabold text-slate-900 text-lg font-['Noto_Sans_Devanagari']">
+                      {member.name}
+                    </h4>
+                    <p className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full inline-block mt-1 font-['Noto_Sans_Devanagari']">
+                      {member.role}
+                    </p>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed font-['Noto_Sans_Devanagari'] line-clamp-4">
+                    {member.bio}
                   </p>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {member.bio}
-                </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
