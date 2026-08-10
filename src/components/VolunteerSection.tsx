@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { TRUST_INFO } from '../data/ngoData';
 import { VolunteerFormData } from '../types';
-import { Users, CheckCircle, Award, Heart, ShieldCheck, Sparkles, Send } from 'lucide-react';
+import { Users, CheckCircle, Award, Heart, ShieldCheck, Sparkles, Send, Download, Printer, X } from 'lucide-react';
+import { CertificateTemplate } from './CertificateTemplate';
 
 interface VolunteerSectionProps {
   language: 'hi' | 'en';
@@ -22,6 +23,7 @@ export const VolunteerSection: React.FC<VolunteerSectionProps> = ({ language }) 
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [volunteerId, setVolunteerId] = useState('');
+  const [showCertificate, setShowCertificate] = useState(false);
 
   const interestOptions = [
     'भोजन वितरण (Food Drive)',
@@ -78,7 +80,7 @@ export const VolunteerSection: React.FC<VolunteerSectionProps> = ({ language }) 
             {language === 'hi' ? 'करुणा सेवा ट्रस्ट के स्वयंसेवक बनें' : 'Join as a Volunteer'}
           </h1>
           <p className="text-slate-600 text-sm sm:text-base">
-            समय, ज्ञान और सेवा का दान करके किसी की जिंदगी बदलने का माध्यम बनें। हमसे जुड़ें और नि:स्वार्थ समाज सेवा का हिस्सा बनें।
+            समय, ज्ञान & सेवा का दान करके किसी की जिंदगी बदलने का माध्यम बनें। हमसे जुड़ें और नि:स्वार्थ समाज सेवा का हिस्सा बनें।
           </p>
         </div>
 
@@ -237,7 +239,7 @@ export const VolunteerSection: React.FC<VolunteerSectionProps> = ({ language }) 
 
           </div>
         ) : (
-          /* Instant Generated Volunteer Card */
+          /* Instant Generated Volunteer Card & Certificate Option */
           <div className="bg-white rounded-3xl p-8 border border-emerald-200 shadow-xl max-w-lg mx-auto text-center space-y-6">
             <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 mx-auto">
               <Sparkles className="w-8 h-8" />
@@ -250,7 +252,7 @@ export const VolunteerSection: React.FC<VolunteerSectionProps> = ({ language }) 
               <h3 className="text-2xl font-black text-slate-900 font-['Noto_Sans_Devanagari']">
                 बधाई हो, {formData.fullName}!
               </h3>
-              <p className="text-xs text-slate-600">
+              <p className="text-xs text-slate-600 font-['Noto_Sans_Devanagari']">
                 आप करुणा सेवा ट्रस्ट के पंजीकृत स्वयंसेवक बन चुके हैं।
               </p>
             </div>
@@ -280,16 +282,71 @@ export const VolunteerSection: React.FC<VolunteerSectionProps> = ({ language }) 
               </div>
             </div>
 
-            <button
-              onClick={() => setIsSubmitted(false)}
-              className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-6 py-2.5 rounded-xl text-xs transition"
-            >
-              दूसरा पंजीकरण करें
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <button
+                onClick={() => setShowCertificate(true)}
+                className="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition"
+              >
+                <Award className="w-4 h-4" />
+                <span>सेवा प्रमाण पत्र देखें व प्रिंट करें</span>
+              </button>
+
+              <button
+                onClick={() => setIsSubmitted(false)}
+                className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-3 px-4 rounded-xl text-xs transition"
+              >
+                दूसरा पंजीकरण करें
+              </button>
+            </div>
           </div>
         )}
 
       </div>
+
+      {/* Volunteer Certificate Modal */}
+      {showCertificate && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xs overflow-y-auto no-print">
+          <div className="bg-white rounded-3xl shadow-2xl border border-emerald-200 max-w-[1180px] w-full overflow-hidden">
+            
+            {/* Top Control Bar */}
+            <div className="bg-slate-900 text-white px-6 py-4 flex items-center justify-between">
+              <span className="text-xs sm:text-sm font-bold text-emerald-400 flex items-center gap-1.5">
+                <ShieldCheck className="w-5 h-5" />
+                <span>स्वयंसेवक प्रमाण पत्र (Official Volunteering Certificate)</span>
+              </span>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => window.print()}
+                  className="bg-emerald-700 hover:bg-emerald-600 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+                >
+                  <Printer className="w-4 h-4" />
+                  <span>प्रमाण पत्र प्रिंट करें / Save PDF</span>
+                </button>
+                <button
+                  onClick={() => setShowCertificate(false)}
+                  className="text-slate-400 hover:text-white p-1 rounded-full"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Certificate Render */}
+            <div className="p-4 bg-slate-100 flex items-center justify-center overflow-x-auto">
+              <div className="min-w-[1123px]">
+                <CertificateTemplate
+                  type="VOLUNTEER"
+                  name={formData.fullName}
+                  contributionTitle={formData.interests.map(i => i.split(' (')[0]).join(', ') || 'समाज सेवा'}
+                  certificateId={volunteerId}
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
     </div>
   );
 };
