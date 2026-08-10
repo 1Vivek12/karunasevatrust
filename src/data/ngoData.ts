@@ -66,7 +66,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     descriptionEn: 'Providing clean and nutritious meals to underprivileged and hungry people.',
     details: 'करुणा सेवा ट्रस्ट दैनिक "अन्नक्षेत्र" रसोई संचालित करता है जिसमें बेघर, अस्पतालों के बाहर परिजनों और झुग्गी-झोपड़ियों के बच्चों को रोजाना ताजा गरम भोजन परोसा जाता है। त्योहारों पर विशेष भंडारे आयोजित किए जाते हैं।',
     impactMetric: '15,000+ जरूरतमंदों को निशुल्क भोजन',
-    image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop'
+    image: '/assets/food_distribution.jpg'
   },
   {
     id: 'health',
@@ -88,7 +88,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     descriptionEn: 'Distributing clean clothes and winter blankets to needy families and elderly people.',
     details: 'सर्दियों के मौसम में गरीबों और सड़कों पर रहने वाले बेघर वृद्धों को गर्म कंबल एवं पूरे साल स्वच्छ वस्त्रों का वितरण किया जाता है। वस्त्र बैंक के माध्यम से नए और अच्छे वस्त्र एकत्रित किए जाते हैं।',
     impactMetric: '8,000+ से अधिक वस्त्र व कंबल वितरित',
-    image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=800&auto=format&fit=crop'
+    image: '/assets/blanket_distribution.jpg'
   },
   {
     id: 'marriage',
@@ -110,7 +110,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     descriptionEn: 'Mass tree planting drives and environmental awareness campaigns to preserve nature.',
     details: 'प्रकृति संतुलन और हरियाली बढ़ाने के लिए प्रतिवर्ष पार्कों, सड़कों के किनारे और स्कूलों में छायादार एवं फलदार पौधे लगाए जाते हैं। स्थानीय निवासियों को पौधों की देखभाल की जिम्मेदारी दी जाती है।',
     impactMetric: '5,000+ फलदार व छायादार पौधे रोपे गए',
-    image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=800&auto=format&fit=crop'
+    image: '/assets/tree_plantation.jpg'
   },
   {
     id: 'education',
@@ -121,7 +121,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     descriptionEn: 'Promoting education for underprivileged children and driving social awareness programs.',
     details: 'झुग्गी-झोपड़ी के बच्चों के लिए नि:शुल्क ट्यूशन कक्षाएं, पाठ्य सामग्री (कॉपियाँ, पेन, बैग) वितरण, बालिकाओं की शिक्षा सहायता तथा नशा मुक्ति व स्वच्छता जागरूकता अभियान आयोजित किए जाते हैं।',
     impactMetric: '1,200+ बच्चों को निशुल्क पठन सामग्री',
-    image: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop'
+    image: '/assets/education_support.jpg'
   }
 ];
 
@@ -166,7 +166,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: 'निःशुल्क अन्नक्षेत्र भोजन वितरण शिविर',
     category: 'food',
     categoryLabel: 'भोजन सेवा',
-    imageUrl: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/food_distribution.jpg',
     date: '15 मार्च 2026',
     location: 'आनंद विहार, दिल्ली'
   },
@@ -184,7 +184,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: 'शीतकालीन गरम वस्त्र एवं कंबल वितरण अभियान',
     category: 'clothes',
     categoryLabel: 'वस्त्र वितरण',
-    imageUrl: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/blanket_distribution.jpg',
     date: '10 जनवरी 2026',
     location: 'ओखला बस्ती, दिल्ली'
   },
@@ -202,16 +202,16 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: 'विश्व पर्यावरण दिवस वृक्षारोपण एवं पौधा वितरण',
     category: 'tree',
     categoryLabel: 'वृक्षारोपण',
-    imageUrl: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/tree_plantation.jpg',
     date: '5 जून 2025',
-    location: 'यमुना पार ग्रीन बेल्ट, दिल्ली'
+    location: 'यमुना पार Green Belt, दिल्ली'
   },
   {
     id: 'g6',
     title: 'निःशुल्क बाल शिक्षा केंद्र एवं पुस्तक वितरण',
     category: 'education',
     categoryLabel: 'शिक्षा एवं जागरूकता',
-    imageUrl: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/education_support.jpg',
     date: '26 जनवरी 2026',
     location: 'सीलमपुर बस्ती, दिल्ली'
   },
@@ -220,7 +220,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: 'वृद्ध आश्रम में भोजन एवं फल वितरण',
     category: 'food',
     categoryLabel: 'भोजन सेवा',
-    imageUrl: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/food_distribution.jpg',
     date: '2 अक्टूबर 2025',
     location: 'रोहिणी वृद्धाश्रम, दिल्ली'
   },
@@ -229,7 +229,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: 'पौधरोपण जन जागरूकता रैली',
     category: 'tree',
     categoryLabel: 'वृक्षारोपण',
-    imageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/tree_plantation.jpg',
     date: '22 अप्रैल 2025',
     location: 'कनाट प्लेस, दिल्ली'
   }
@@ -256,7 +256,7 @@ export const ACTIVITIES_DATA: ActivityEvent[] = [
     location: 'यमुना खादर पार्क क्षेत्र, दिल्ली',
     description: 'मानसून सत्र में 1100 बरगद, नीम, पीपल और आम के पौधे लगाने का संकल्प। सभी वालंटियर्स सादर आमंत्रित हैं।',
     category: 'वृक्षारोपण',
-    imageUrl: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/tree_plantation.jpg',
     isUpcoming: true,
     registeredCount: 89
   },
@@ -268,7 +268,7 @@ export const ACTIVITIES_DATA: ActivityEvent[] = [
     location: 'एम्स अस्पताल के पास, दिल्ली',
     description: 'अस्पताल में भर्ती मरीजों के परिजनों एवं निर्धन जनों के लिए गरम कढ़ी-चावल, पूरी-सब्जी का सात्विक भोजन वितरण।',
     category: 'भोजन सेवा',
-    imageUrl: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/food_distribution.jpg',
     isUpcoming: false
   },
   {
@@ -279,7 +279,7 @@ export const ACTIVITIES_DATA: ActivityEvent[] = [
     location: 'राजकीय विद्यालय, सीलमपुर, दिल्ली',
     description: '500 मेधावी एवं जरूरतमंद छात्र-छात्राओं को विद्यालय किट एवं स्टेशनरी का नि:शुल्क वितरण।',
     category: 'शिक्षा सेवा',
-    imageUrl: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/education_support.jpg',
     isUpcoming: false
   }
 ];
@@ -289,7 +289,7 @@ export const TRUSTEES_DATA: TrusteeMember[] = [
     id: 't1',
     name: 'श्री विजय प्रकाश शर्मा',
     role: 'मुख्य संस्थापक एवं अध्यक्ष',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop',
+    image: '/assets/founder.png',
     bio: 'विगत 25 वर्षों से समाज सेवा में समर्पित। करुणा सेवा ट्रस्ट की स्थापना निर्धन उत्थान के उद्देश्य से की।'
   },
   {
