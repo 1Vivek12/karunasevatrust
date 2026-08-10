@@ -108,13 +108,17 @@ export const Hero: React.FC<HeroProps> = ({
           >
             {/* Main Founder Card */}
             <div className="col-span-12 md:col-span-8 relative overflow-hidden rounded-3xl bg-emerald-950/80 backdrop-blur-md border border-white/10 p-4 shadow-xl flex flex-col group">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border-2 border-[#D4AF37]/30">
+              <div className="relative w-full overflow-hidden rounded-2xl aspect-[16/9] md:aspect-[16/10] border-2 border-[#D4AF37]/30 bg-emerald-950/20">
+                {/* Fallback Background Pulse Skeleton */}
+                <div className="absolute inset-0 bg-emerald-950/20 animate-pulse -z-10" />
                 <img 
                   src="/assets/founder.png" 
                   alt="Founder of Karuna Seva Trust" 
-                  className="w-full h-full object-cover object-top group-hover:scale-102 transition duration-500"
+                  className="w-full h-full object-cover object-center group-hover:scale-102 transition duration-500"
+                  loading="eager"
+                  fetchPriority="high"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
               </div>
               <div className="mt-3 text-white space-y-1">
                 <h3 className="font-extrabold text-lg font-['Noto_Sans_Devanagari'] tracking-wide">

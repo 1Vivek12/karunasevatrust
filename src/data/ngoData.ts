@@ -77,7 +77,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     descriptionEn: 'Organizing free health checkup camps, distributing medicines, and providing medical aid.',
     details: 'अनुभवी डॉक्टरों की टीम के साथ ग्रामीण व झुग्गी इलाकों में नि:शुल्क चिकित्सा शिविर, मोतियाबिंद ऑपरेशन सहायता, नि:शुल्क रक्तचाप एवं शुगर जांच तथा जरूरतमंद मरीजों को दवाई वितरण की जाती है।',
     impactMetric: '3,000+ रोगियों का सफल इलाज व जांच',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop'
+    image: '/assets/healthcare_camp.jpg'
   },
   {
     id: 'clothes',
@@ -99,7 +99,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     descriptionEn: 'Financial assistance and wedding kits for marriage of daughters from underprivileged families.',
     details: 'गरीब और बेसहारा परिवारों की बेटियों के सामूहिक विवाह समारोह आयोजित किए जाते हैं। नवदंपति को गृहस्थी का आवश्यक सामान जैसे बर्तन, वस्त्र, सिलाई मशीन एवं उपहार देकर उनका आशीर्वाद दिया जाता है।',
     impactMetric: '250+ कन्याओं का सम्मानजनक विवाह',
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop'
+    image: '/assets/marriage_support.jpg'
   },
   {
     id: 'tree',
@@ -175,7 +175,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: 'विशाल स्वास्थ्य एवं नेत्र जांच शिविर',
     category: 'health',
     categoryLabel: 'स्वास्थ्य सेवा',
-    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/healthcare_camp.jpg',
     date: '28 फरवरी 2026',
     location: 'गांधी नगर, दिल्ली'
   },
@@ -193,7 +193,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: '21 निर्धन कन्याओं का भव्य सामूहिक विवाह समारोह',
     category: 'marriage',
     categoryLabel: 'विवाह सहयोग',
-    imageUrl: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/marriage_support.jpg',
     date: '14 फरवरी 2026',
     location: 'करुणा सेवा आश्रम, दिल्ली'
   },
@@ -244,7 +244,7 @@ export const ACTIVITIES_DATA: ActivityEvent[] = [
     location: 'करुणा सेवा आश्रम प्रांगण, गांधी नगर, नई दिल्ली',
     description: 'स्वतंत्रता दिवस के पावन अवसर पर विशाल रक्तदान शिविर एवं निःशुल्क हृदय व डायबिटीज जांच शिविर का आयोजन।',
     category: 'स्वास्थ्य सेवा',
-    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop',
+    imageUrl: '/assets/healthcare_camp.jpg',
     isUpcoming: true,
     registeredCount: 142
   },
