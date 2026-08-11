@@ -1,3 +1,4 @@
+import { CtaBannerSection } from './components/CtaBannerSection';
 import React, { useState, useEffect } from 'react';
 import { ActiveTab, ServiceCard, DonationReceipt } from './types';
 import { AnimatePresence } from 'motion/react';
@@ -69,24 +70,24 @@ export default function App() {
       <main className="flex-1">
         {activeTab === 'home' && (
           <>
-            {/* 1. Hero Section (Exact matching user screenshot) */}
+            {/* 1. Hero Section (Cinematic background backdrop) */}
             <Hero
               onOpenDonateModal={handleOpenDonateModal}
               onOpenVolunteer={handleOpenVolunteer}
               language={language}
             />
 
-            {/* 2. Impact Stats Green Bar (15000+ भोजन, 8000+ वस्त्र, 3000+ स्वास्थ्य, etc.) */}
+            {/* 2. Impact Stats Green Bar */}
             <StatsBar language={language} />
 
-            {/* 3. Major Works "हमारे प्रमुख कार्य" 6 Cards Grid */}
+            {/* 3. Major Works "हमारे प्रमुख कार्य" */}
             <MajorWorks
               onSelectWork={(work) => setSelectedWork(work)}
               setActiveTab={setActiveTab}
               language={language}
             />
 
-            {/* 4. Values Bar & Quote Card ("एक छोटा सा कदम, किसी की जिंदगी बदल सकता है।") */}
+            {/* 4. Values Bar & Quote Card */}
             <ValuesBar language={language} />
 
             {/* 5. Live Recent Donors Supporter Marquee */}
@@ -113,41 +114,12 @@ export default function App() {
               </div>
             </section>
 
-            {/* 6. Call to Action Banner */}
-            <section className="py-14 bg-gradient-to-r from-emerald-800 via-green-800 to-emerald-900 text-white relative overflow-hidden">
-              <div className="max-w-5xl mx-auto px-4 text-center space-y-6 relative z-10">
-                <div className="inline-flex items-center gap-2 bg-emerald-700/80 text-emerald-200 text-xs px-3 py-1 rounded-full font-bold">
-                  <ShieldCheck className="w-4 h-4 text-emerald-300" />
-                  <span>80G आयकर छूट के साथ पुण्य कमाएँ</span>
-                </div>
-
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-['Noto_Sans_Devanagari']">
-                  आपका एक छोटा सा दान किसी के जीवन में आशा का दीप जला सकता है
-                </h2>
-
-                <p className="text-emerald-100 text-sm sm:text-base max-w-2xl mx-auto">
-                  {TRUST_INFO.nameHi} के माध्यम से आज ही जरूरतमंदों के भोजन, स्वास्थ्य और बालिकाओं के उज्जवल भविष्य हेतु सहयोग करें।
-                </p>
-
-                <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-                  <button
-                    onClick={handleOpenDonateModal}
-                    className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-lg px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition flex items-center gap-2 cursor-pointer transform hover:scale-105"
-                  >
-                    <Heart className="w-5 h-5 fill-slate-950" />
-                    <span>ऑनलाइन दान करें (Donate Now)</span>
-                  </button>
-
-                  <button
-                    onClick={handleOpenVolunteer}
-                    className="bg-emerald-900/80 hover:bg-emerald-900 text-white border border-emerald-600 font-bold text-base px-8 py-3.5 rounded-full shadow transition flex items-center gap-2 cursor-pointer"
-                  >
-                    <span>स्वयंसेवक बनें (Become Volunteer)</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            </section>
+            {/* 6. Decorative Call to Action Banner Section with Side Photos */}
+            <CtaBannerSection
+              onOpenDonateModal={handleOpenDonateModal}
+              onOpenVolunteer={handleOpenVolunteer}
+              language={language}
+            />
           </>
         )}
 
