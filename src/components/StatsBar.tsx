@@ -27,7 +27,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({ language }) => {
   return (
     <section className="py-4 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Exact Mockup Green Bar */}
-      <div className="bg-[#156d25] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-xl relative overflow-hidden">
+      <div className="bg-[#1a702b] text-white rounded-2xl p-4 sm:p-5 shadow-lg relative overflow-hidden">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-0 items-center">
           {STATS_DATA.map((item, index) => (
             <div

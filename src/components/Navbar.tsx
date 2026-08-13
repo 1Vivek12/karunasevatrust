@@ -38,27 +38,27 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-white shadow-md border-b border-emerald-100">
-      {/* Top Notification / Info Strip */}
-      <div className="bg-emerald-900 text-white text-xs py-1.5 px-4">
+      {/* Top Notification / Info Strip - Light subtle style matching mockup */}
+      <div className="bg-[#eef7f0] border-b border-emerald-100 text-[#1a702b] text-xs py-1 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4 flex-wrap">
-            <span className="flex items-center gap-1 text-emerald-200">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="flex items-center gap-1 font-medium">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#1a702b]" />
               <span>पंजीकृत न्यास संख्या: {TRUST_INFO.regNo}</span>
             </span>
             <span className="hidden md:inline text-emerald-400">•</span>
-            <span className="hidden md:inline-flex items-center gap-1 text-emerald-100">
-              <span className="bg-emerald-700 text-emerald-100 text-[10px] px-1.5 py-0.5 rounded font-semibold">80G Tax Free</span>
+            <span className="hidden md:inline-flex items-center gap-1">
+              <span className="bg-[#1a702b] text-white text-[10px] px-1.5 py-0.5 rounded font-bold">80G Tax Free</span>
               <span>दान पर 80G आयकर छूट उपलब्ध</span>
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-xs">
-            <a href={`tel:${TRUST_INFO.phone}`} className="hover:text-emerald-300 flex items-center gap-1 transition">
+          <div className="flex items-center gap-4 text-xs font-semibold">
+            <a href={`tel:${TRUST_INFO.phone}`} className="hover:text-emerald-800 flex items-center gap-1 transition">
               <Phone className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">{TRUST_INFO.phone.split('/')[0]}</span>
             </a>
-            <a href={`mailto:${TRUST_INFO.email}`} className="hover:text-emerald-300 hidden lg:flex items-center gap-1 transition">
+            <a href={`mailto:${TRUST_INFO.email}`} className="hover:text-emerald-800 hidden lg:flex items-center gap-1 transition">
               <Mail className="w-3.5 h-3.5" />
               <span>{TRUST_INFO.email}</span>
             </a>
@@ -66,10 +66,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Language Toggle */}
             <button
               onClick={() => setLanguage(language === 'hi' ? 'en' : 'hi')}
-              className="flex items-center gap-1 bg-emerald-800 hover:bg-emerald-700 text-emerald-100 px-2 py-0.5 rounded transition text-xs font-medium border border-emerald-600"
+              className="flex items-center gap-1 bg-white hover:bg-emerald-50 text-[#1a702b] px-2 py-0.5 rounded transition text-xs font-bold border border-emerald-300 shadow-2xs"
               title="Change Language"
             >
-              <Globe className="w-3 h-3 text-emerald-300" />
+              <Globe className="w-3 h-3 text-[#1a702b]" />
               <span>{language === 'hi' ? 'English' : 'हिंदी'}</span>
             </button>
           </div>
@@ -79,34 +79,32 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Main Header Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         
-        {/* Logo Section */}
+        {/* Logo Section matching Mockup */}
         <div 
           onClick={() => handleNavClick('home')}
           className="flex items-center gap-3 cursor-pointer group select-none"
         >
-          {/* Custom NGO Logo Asset with high-DPI scaling */}
-          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-emerald-500/30 shadow-md group-hover:scale-105 transition-transform shrink-0">
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-emerald-500/30 shadow-sm group-hover:scale-105 transition-transform shrink-0">
             <img 
               src="/assets/splash-logo.png" 
               alt="Karuna Seva Trust Logo"
               className="w-full h-full object-cover object-center"
-              style={{ imageRendering: 'auto' }}
             />
           </div>
 
           <div>
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-emerald-800 tracking-tight leading-none font-['Noto_Sans_Devanagari'] group-hover:text-emerald-700 transition">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-[#1a702b] tracking-tight leading-none font-['Noto_Sans_Devanagari']">
               {language === 'hi' ? TRUST_INFO.nameHi : TRUST_INFO.nameEn}
             </h1>
-            <p className="text-xs sm:text-sm text-emerald-600 font-medium mt-0.5 tracking-wide flex items-center gap-1">
-              <span className="text-amber-500 font-bold">—</span>
+            <p className="text-xs sm:text-sm text-emerald-700 font-bold mt-0.5 tracking-wide flex items-center gap-1 font-['Noto_Sans_Devanagari']">
+              <span className="text-[#1a702b]">—</span>
               <span>{language === 'hi' ? TRUST_INFO.taglineHi : TRUST_INFO.taglineEn}</span>
-              <span className="text-amber-500 font-bold">—</span>
+              <span className="text-[#1a702b]">—</span>
             </p>
           </div>
         </div>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links matching Mockup with active underline */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
@@ -114,37 +112,36 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`px-3 py-2 rounded-lg text-sm font-semibold transition-all duration-200 relative ${
+                className={`px-3 py-2 rounded-lg text-sm font-bold transition-all duration-200 relative ${
                   isActive
-                    ? 'text-emerald-800 bg-emerald-50 border-b-2 border-emerald-600 shadow-xs'
-                    : 'text-slate-700 hover:text-emerald-700 hover:bg-slate-50'
+                    ? 'text-[#1a702b] bg-emerald-50/80 font-extrabold'
+                    : 'text-slate-700 hover:text-[#1a702b] hover:bg-slate-50'
                 }`}
               >
                 {language === 'hi' ? item.labelHi : item.labelEn}
                 {isActive && (
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-emerald-600 rounded-full"></span>
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-0.5 bg-[#1a702b] rounded-full"></span>
                 )}
               </button>
             );
           })}
         </nav>
 
-        {/* Right CTA Button (Volunteer followed by Donate Now) */}
+        {/* Right CTA Button matching Mockup */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Volunteer Button (Ghost button with glassmorphism border-emerald-600/30) */}
           <button
             onClick={() => { setActiveTab('volunteer'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="hidden xl:flex bg-emerald-50/20 hover:bg-emerald-50/50 backdrop-blur-xs text-emerald-800 border border-emerald-600/30 font-extrabold text-sm px-5 min-h-[44px] rounded-full shadow-xs hover:shadow transition-all items-center gap-2 cursor-pointer group"
+            className="hidden xl:flex bg-emerald-50 hover:bg-emerald-100/70 text-[#1a702b] border border-emerald-300 font-extrabold text-sm px-4 py-2 rounded-lg shadow-2xs transition items-center gap-1.5 cursor-pointer"
           >
-            <Users className="w-4 h-4 text-emerald-700 group-hover:scale-110 transition-transform" aria-hidden="true" />
+            <Users className="w-4 h-4 text-[#1a702b]" aria-hidden="true" />
             <span>{language === 'hi' ? 'स्वयंसेवक बनें' : 'Join Us'}</span>
           </button>
           
-          {/* Donate Button matching Mockup (Solid Green rounded-xl) */}
+          {/* Donate Button (Solid Green rounded-lg matching mockup) */}
           <button
             onClick={onOpenDonateModal}
             aria-haspopup="dialog"
-            className="bg-[#156d25] hover:bg-[#11571d] text-white font-black px-5 sm:px-6 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2 group cursor-pointer text-sm sm:text-base"
+            className="bg-[#1a702b] hover:bg-[#145b22] text-white font-extrabold px-6 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2 group cursor-pointer text-sm sm:text-base"
           >
             <Heart className="w-4 h-4 fill-white text-white group-hover:scale-110 transition-transform" aria-hidden="true" />
             <span>{language === 'hi' ? 'दान करें' : 'Donate Now'}</span>
