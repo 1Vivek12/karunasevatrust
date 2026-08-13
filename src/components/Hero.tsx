@@ -67,22 +67,22 @@ export const Hero: React.FC<HeroProps> = ({
               </p>
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons (Swapped as requested) */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+              <button
+                onClick={onOpenVolunteer}
+                className="bg-white hover:bg-emerald-50 text-[#1a702b] font-extrabold text-lg px-8 py-3.5 rounded-xl shadow-2xl transition flex items-center gap-2.5 cursor-pointer transform hover:scale-105 active:scale-95 border-2 border-emerald-300"
+              >
+                <Users className="w-5 h-5 text-[#1a702b]" />
+                <span>{language === 'hi' ? 'हमसे जुड़ें' : 'Join Us'}</span>
+              </button>
+
               <button
                 onClick={onOpenDonateModal}
                 className="bg-[#1a702b] hover:bg-[#145b22] text-white font-extrabold text-lg px-8 py-3.5 rounded-xl shadow-2xl transition flex items-center gap-2.5 cursor-pointer transform hover:scale-105 active:scale-95 border-2 border-emerald-400"
               >
                 <Heart className="w-5 h-5 fill-white text-white" />
                 <span>{language === 'hi' ? 'दान करें' : 'Donate Now'}</span>
-              </button>
-
-              <button
-                onClick={onOpenVolunteer}
-                className="bg-white hover:bg-emerald-50 text-[#1a702b] font-extrabold text-lg px-7 py-3.5 rounded-xl shadow-xl transition flex items-center gap-2.5 cursor-pointer transform hover:scale-105 active:scale-95 border-2 border-emerald-300"
-              >
-                <Users className="w-5 h-5 text-[#1a702b]" />
-                <span>{language === 'hi' ? 'हमसे जुड़ें' : 'Join Us'}</span>
               </button>
 
               <button
