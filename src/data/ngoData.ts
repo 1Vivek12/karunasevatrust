@@ -21,35 +21,35 @@ export const TRUST_INFO = {
 export const STATS_DATA: StatItem[] = [
   {
     id: '1',
-    number: '15000+',
+    number: '10000+',
     label: 'लोगों को भोजन',
     labelEn: 'People Fed',
     icon: 'Utensils'
   },
   {
     id: '2',
-    number: '8000+',
+    number: '4000+',
     label: 'वस्त्र वितरण',
     labelEn: 'Clothes Distributed',
     icon: 'Shirt'
   },
   {
     id: '3',
-    number: '3000+',
+    number: '2000+',
     label: 'स्वास्थ्य सहायता',
     labelEn: 'Health Assistance',
     icon: 'Stethoscope'
   },
   {
     id: '4',
-    number: '250+',
+    number: '150+',
     label: 'विवाह सहयोग',
     labelEn: 'Marriage Support',
     icon: 'HeartHandshake'
   },
   {
     id: '5',
-    number: '5000+',
+    number: '3000+',
     label: 'वृक्षारोपण',
     labelEn: 'Trees Planted',
     icon: 'Trees'
@@ -65,7 +65,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     description: 'जरूरतमंद लोगों को स्वच्छ और पौष्टिक भोजन उपलब्ध कराना।',
     descriptionEn: 'Providing clean and nutritious meals to underprivileged and hungry people.',
     details: 'करुणा सेवा ट्रस्ट दैनिक "अन्नक्षेत्र" रसोई संचालित करता है जिसमें बेघर, अस्पतालों के बाहर परिजनों और झुग्गी-झोपड़ियों के बच्चों को रोजाना ताजा गरम भोजन परोसा जाता है। त्योहारों पर विशेष भंडारे आयोजित किए जाते हैं।',
-    impactMetric: '15,000+ जरूरतमंदों को निशुल्क भोजन',
+    impactMetric: '10,000+ जरूरतमंदों को निशुल्क भोजन',
     image: '/assets/food_distribution.jpg'
   },
   {
@@ -76,7 +76,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     description: 'स्वास्थ्य शिविर, दवा वितरण और जरूरतमंदों को चिकित्सा सहायता प्रदान करना।',
     descriptionEn: 'Organizing free health checkup camps, distributing medicines, and providing medical aid.',
     details: 'अनुभवी डॉक्टरों की टीम के साथ ग्रामीण व झुग्गी इलाकों में नि:शुल्क चिकित्सा शिविर, मोतियाबिंद ऑपरेशन सहायता, नि:शुल्क रक्तचाप एवं शुगर जांच तथा जरूरतमंद मरीजों को दवाई वितरण की जाती है।',
-    impactMetric: '3,000+ रोगियों का सफल इलाज व जांच',
+    impactMetric: '2,000+ रोगियों का सफल इलाज व जांच',
     image: '/assets/healthcare_camp.jpg'
   },
   {
@@ -87,7 +87,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     description: 'जरूरतमंद लोगों को कपड़े उपलब्ध कराकर उनकी सहायता करना।',
     descriptionEn: 'Distributing clean clothes and winter blankets to needy families and elderly people.',
     details: 'सर्दियों के मौसम में गरीबों और सड़कों पर रहने वाले बेघर वृद्धों को गर्म कंबल एवं पूरे साल स्वच्छ वस्त्रों का वितरण किया जाता है। वस्त्र बैंक के माध्यम से नए और अच्छे वस्त्र एकत्रित किए जाते हैं।',
-    impactMetric: '8,000+ से अधिक वस्त्र व कंबल वितरित',
+    impactMetric: '4,000+ से अधिक वस्त्र व कंबल वितरित',
     image: '/assets/blanket_distribution.jpg'
   },
   {
@@ -98,7 +98,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     description: 'निर्धन परिवारों की बेटियों के विवाह में आर्थिक एवं सामग्री सहयोग।',
     descriptionEn: 'Financial assistance and wedding kits for marriage of daughters from underprivileged families.',
     details: 'गरीब और बेसहारा परिवारों की बेटियों के सामूहिक विवाह समारोह आयोजित किए जाते हैं। नवदंपति को गृहस्थी का आवश्यक सामान जैसे बर्तन, वस्त्र, सिलाई मशीन एवं उपहार देकर उनका आशीर्वाद दिया जाता है।',
-    impactMetric: '250+ कन्याओं का सम्मानजनक विवाह',
+    impactMetric: '150+ कन्याओं का सम्मानजनक विवाह',
     image: '/assets/marriage_support.jpg'
   },
   {
@@ -109,7 +109,7 @@ export const MAJOR_WORKS: ServiceCard[] = [
     description: 'पर्यावरण संरक्षण के लिए अधिक से अधिक वृक्षारोपण और जागरूकता अभियान।',
     descriptionEn: 'Mass tree planting drives and environmental awareness campaigns to preserve nature.',
     details: 'प्रकृति संतुलन और हरियाली बढ़ाने के लिए प्रतिवर्ष पार्कों, सड़कों के किनारे और स्कूलों में छायादार एवं फलदार पौधे लगाए जाते हैं। स्थानीय निवासियों को पौधों की देखभाल की जिम्मेदारी दी जाती है।',
-    impactMetric: '5,000+ फलदार व छायादार पौधे रोपे गए',
+    impactMetric: '3,000+ फलदार व छायादार पौधे रोपे गए',
     image: '/assets/tree_plantation.jpg'
   },
   {
