@@ -13,7 +13,7 @@ export const TRUST_INFO = {
   panNo: "AAATK8492K",
   taxExemption: "Section 80G Tax Exempt Certified (80G/12A Registered)",
   phone: "+91 7905357033, +91 8840193573",
-  email: "info@karunasevatrust.org",
+  email: "info@karunasevatrust.com",
   address: "हरसेवकपुर नंबर- 2, निकट अंबा चरण चौराहा, गोरखपुर",
   workingHours: "सोमवार - शनिवार: सुबह 8:00 बजे से शाम 7:00 बजे तक"
 };

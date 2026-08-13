@@ -19,7 +19,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
   language
 }) => {
   const [formData, setFormData] = useState<DonationFormData>({
-    amount: 1100,
+    amount: 101,
     cause: 'भोजन सेवा (Food Service)',
     fullName: '',
     phone: '',
@@ -40,7 +40,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
 
   if (!isOpen) return null;
 
-  const presetAmounts = [100, 500, 1100, 2100, 5100, 11000];
+  const presetAmounts = [101, 501, 1101, 2101, 5101, 11001];
   const causeOptions = [
     'भोजन सेवा (Food Distribution)',
     'स्वास्थ्य सहायता व दवाइयाँ (Health & Medical)',
@@ -121,26 +121,26 @@ export const DonateModal: React.FC<DonateModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xl overflow-y-auto">
-      <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border border-emerald-500/20 w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in duration-200 my-8">
+      <div className="bg-white rounded-3xl shadow-2xl border border-emerald-300 w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in duration-200 my-8">
         
-        {/* Modal Top Header */}
-        <div className="bg-gradient-to-r from-emerald-800 to-green-900 text-white p-5 sm:p-6 flex items-center justify-between relative">
+        {/* Modal Top Header - Light Green Theme */}
+        <div className="bg-gradient-to-r from-emerald-100 via-green-100 to-emerald-200 text-slate-900 p-5 sm:p-6 flex items-center justify-between relative border-b border-emerald-300">
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-1.5 bg-emerald-700/80 text-emerald-200 text-xs px-2.5 py-0.5 rounded-full font-medium">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
+            <div className="inline-flex items-center gap-1.5 bg-emerald-700 text-white text-xs px-2.5 py-0.5 rounded-full font-bold">
+              <ShieldCheck className="w-3.5 h-3.5 text-white" />
               <span>80G Tax Free Donation</span>
             </div>
-            <h3 className="text-2xl font-extrabold text-white font-['Noto_Sans_Devanagari']">
+            <h3 className="text-2xl font-black text-emerald-950 font-['Noto_Sans_Devanagari']">
               {language === 'hi' ? 'ऑनलाइन दान करें (Donate Now)' : 'Donate to Karuna Seva Trust'}
             </h3>
-            <p className="text-xs text-emerald-200">
+            <p className="text-xs text-slate-700 font-semibold">
               {TRUST_INFO.nameHi} • {TRUST_INFO.taglineHi}
             </p>
           </div>
 
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-emerald-900/60 hover:bg-emerald-900 text-white flex items-center justify-center transition"
+            className="w-9 h-9 rounded-full bg-emerald-200 hover:bg-emerald-300 text-emerald-900 flex items-center justify-center transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>

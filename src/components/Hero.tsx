@@ -33,17 +33,17 @@ export const Hero: React.FC<HeroProps> = ({
           alt="Karuna Seva Trust Background Banner"
           className="w-full h-full object-cover object-center scale-105 filter contrast-[1.05] brightness-90 transition-transform duration-1000"
         />
-        {/* Layer 1: Dark Emerald Gradient Overlay for High Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 via-emerald-950/85 to-emerald-900/90" />
+        {/* Layer 1: Emerald Gradient Overlay for High Readability & Fresh Look */}
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/85 via-emerald-800/75 to-green-900/80" />
         {/* Layer 2: Top and Bottom Decorative Glow Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-emerald-950/95" />
-        {/* Layer 3: Decorative Radial Golden Light Spotlight */}
-        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-emerald-900/80" />
+        {/* Layer 3: Decorative Radial Light Spotlight */}
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-emerald-400/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-emerald-300/15 rounded-full blur-3xl pointer-events-none" />
       </div>
 
-      {/* Decorative Traditional Border Top & Bottom Accent Strip */}
-      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-amber-400 via-emerald-400 to-amber-500 z-20" />
+      {/* Decorative Border Top Strip */}
+      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-300 via-emerald-400 to-green-300 z-20" />
 
       {/* 2. FOREGROUND CONTENT & DECORATIVE HERO CONTAINER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 lg:py-16 w-full space-y-8">
@@ -58,8 +58,8 @@ export const Hero: React.FC<HeroProps> = ({
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
             {/* Top Registration Badge */}
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-900/90 to-emerald-800/90 backdrop-blur-md border border-[#D4AF37]/50 text-amber-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-lg">
-              <Sparkles className="w-4 h-4 text-amber-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md border border-emerald-300 text-emerald-950 px-4 py-1.5 rounded-full text-xs sm:text-sm font-extrabold shadow-lg">
+              <Sparkles className="w-4 h-4 text-emerald-700 animate-pulse" />
               <span>पंजीकृत सार्वजनिक जनसेवा न्यास • 80G Certified</span>
             </div>
 
@@ -70,27 +70,27 @@ export const Hero: React.FC<HeroProps> = ({
               </h1>
 
               {/* Tagline Line Decoration */}
-              <div className="flex items-center justify-center lg:justify-start gap-3 text-amber-400 text-sm sm:text-base md:text-lg font-bold py-1">
-                <span className="h-0.5 w-10 bg-gradient-to-r from-transparent to-amber-400 rounded-full"></span>
-                <Leaf className="w-5 h-5 text-emerald-400" />
-                <span className="text-amber-300 font-extrabold tracking-wide drop-shadow-sm font-['Noto_Sans_Devanagari']">
+              <div className="flex items-center justify-center lg:justify-start gap-3 text-emerald-200 text-sm sm:text-base md:text-lg font-bold py-1">
+                <span className="h-0.5 w-10 bg-gradient-to-r from-transparent to-emerald-300 rounded-full"></span>
+                <Leaf className="w-5 h-5 text-emerald-300" />
+                <span className="text-emerald-100 font-extrabold tracking-wide drop-shadow-sm font-['Noto_Sans_Devanagari']">
                   {language === 'hi' ? TRUST_INFO.taglineHi : TRUST_INFO.taglineEn}
                 </span>
-                <Leaf className="w-5 h-5 text-emerald-400" />
-                <span className="h-0.5 w-10 bg-gradient-to-l from-transparent to-amber-400 rounded-full"></span>
+                <Leaf className="w-5 h-5 text-emerald-300" />
+                <span className="h-0.5 w-10 bg-gradient-to-l from-transparent to-emerald-300 rounded-full"></span>
               </div>
             </div>
 
             {/* Quote Box Callout */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl max-w-2xl mx-auto lg:mx-0 shadow-xl">
-              <p className="text-emerald-100 text-base sm:text-lg font-medium leading-relaxed font-['Noto_Sans_Devanagari']">
+            <div className="bg-white/15 backdrop-blur-md border border-white/25 p-4 rounded-2xl max-w-2xl mx-auto lg:mx-0 shadow-xl">
+              <p className="text-emerald-50 text-base sm:text-lg font-medium leading-relaxed font-['Noto_Sans_Devanagari']">
                 "आओ मिलकर बनाएं एक बेहतर, करुणामय समाज — मानवता की सेवा ही हमारा सर्वोपरि कर्तव्य एवं संकल्प है।"
               </p>
             </div>
 
             {/* 5 Cause Pills Decorative Grid */}
             <div className="pt-1">
-              <p className="text-xs text-amber-300 font-bold uppercase tracking-wider mb-2 font-['Noto_Sans_Devanagari'] text-center lg:text-left">
+              <p className="text-xs text-emerald-200 font-bold uppercase tracking-wider mb-2 font-['Noto_Sans_Devanagari'] text-center lg:text-left">
                 न्यास के मुख्य सेवा क्षेत्र (Core Service Pillars)
               </p>
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
@@ -99,9 +99,9 @@ export const Hero: React.FC<HeroProps> = ({
                   return (
                     <span
                       key={idx}
-                      className="inline-flex items-center gap-1.5 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-400/30 backdrop-blur-md text-white text-xs sm:text-sm px-3.5 py-1.5 rounded-full font-bold shadow-md transition-all hover:border-amber-400"
+                      className="inline-flex items-center gap-1.5 bg-white/90 hover:bg-white text-emerald-950 border border-emerald-200 backdrop-blur-md text-xs sm:text-sm px-3.5 py-1.5 rounded-full font-extrabold shadow-md transition-all hover:border-emerald-400"
                     >
-                      <IconComp className="w-4 h-4 text-amber-400" />
+                      <IconComp className="w-4 h-4 text-emerald-700" />
                       <span>{language === 'hi' ? c.labelHi : c.labelEn}</span>
                     </span>
                   );
@@ -111,67 +111,67 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Hero Action Buttons */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
-              {/* Donate Button - Golden Accent */}
+              {/* Donate Button */}
               <button
                 onClick={onOpenDonateModal}
                 aria-haspopup="dialog"
-                className="bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 hover:from-amber-300 hover:to-amber-400 text-slate-950 font-black text-lg px-8 py-3.5 rounded-full shadow-2xl shadow-amber-500/30 hover:shadow-amber-400/50 transition-all flex items-center gap-2.5 cursor-pointer group transform hover:scale-105 active:scale-95 min-h-[44px] border-2 border-amber-300"
+                className="bg-emerald-700 hover:bg-emerald-800 text-white font-black text-lg px-8 py-3.5 rounded-full shadow-2xl shadow-emerald-900/40 transition-all flex items-center gap-2.5 cursor-pointer group transform hover:scale-105 active:scale-95 min-h-[44px] border-2 border-emerald-500"
               >
-                <Heart className="w-5 h-5 fill-slate-950 text-slate-950 group-hover:scale-110 transition-transform" />
+                <Heart className="w-5 h-5 fill-white text-white group-hover:scale-110 transition-transform" />
                 <span>{language === 'hi' ? 'ऑनलाइन दान करें' : 'Donate Now'}</span>
               </button>
 
               {/* Volunteer Button - Glass Accent */}
               <button
                 onClick={onOpenVolunteer}
-                className="bg-emerald-900/80 hover:bg-emerald-800 text-white border-2 border-emerald-400/50 font-extrabold text-lg px-7 py-3.5 rounded-full shadow-lg backdrop-blur-md hover:border-emerald-300 transition-all flex items-center gap-2.5 cursor-pointer group min-h-[44px]"
+                className="bg-white hover:bg-emerald-50 text-emerald-950 border-2 border-emerald-300 font-extrabold text-lg px-7 py-3.5 rounded-full shadow-lg backdrop-blur-md hover:border-emerald-500 transition-all flex items-center gap-2.5 cursor-pointer group min-h-[44px]"
               >
-                <Users className="w-5 h-5 text-emerald-300 group-hover:scale-110 transition-transform" />
+                <Users className="w-5 h-5 text-emerald-700 group-hover:scale-110 transition-transform" />
                 <span>{language === 'hi' ? 'स्वयंसेवक बनें' : 'Join Us'}</span>
               </button>
 
               {/* View Full Original Poster Lightbox Button */}
               <button
                 onClick={() => setIsLightboxOpen(true)}
-                className="bg-white/10 hover:bg-white/20 text-emerald-200 hover:text-white border border-white/20 text-xs sm:text-sm font-bold px-4 py-3.5 rounded-full backdrop-blur-md transition flex items-center gap-2 cursor-pointer shadow-md"
+                className="bg-white/10 hover:bg-white/20 text-white border border-white/30 text-xs sm:text-sm font-bold px-4 py-3.5 rounded-full backdrop-blur-md transition flex items-center gap-2 cursor-pointer shadow-md"
               >
-                <Eye className="w-4 h-4 text-amber-300" />
+                <Eye className="w-4 h-4 text-emerald-300" />
                 <span>{language === 'hi' ? 'मूल पोस्टर देखें' : 'View Full Poster'}</span>
               </button>
             </div>
           </motion.div>
 
-          {/* Right Column: Decorative Glassmorphism Spotlight Card */}
+          {/* Right Column: Decorative Bright Light Green Spotlight Card */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="lg:col-span-5 space-y-4"
           >
-            {/* Glass Card Container */}
-            <div className="bg-emerald-950/70 backdrop-blur-xl p-6 rounded-3xl border-2 border-[#D4AF37]/40 shadow-2xl space-y-5 relative overflow-hidden group">
+            {/* Bright Light Green Card Container */}
+            <div className="bg-white/95 backdrop-blur-xl p-6 rounded-3xl border-2 border-emerald-300 shadow-2xl space-y-5 relative overflow-hidden group text-slate-900">
               {/* Top Accent Ribbon */}
-              <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-amber-500 text-slate-950 font-black text-[10px] uppercase px-3 py-1 rounded-bl-xl shadow-md">
+              <div className="absolute top-0 right-0 bg-emerald-700 text-white font-black text-[10px] uppercase px-3 py-1 rounded-bl-xl shadow-md">
                 100% Certified Public Trust
               </div>
 
               {/* Header Box */}
-              <div className="flex items-center gap-3 border-b border-white/15 pb-4 pt-1">
-                <div className="w-12 h-12 rounded-2xl bg-amber-400/20 border border-amber-400/40 flex items-center justify-center text-amber-300 shrink-0">
+              <div className="flex items-center gap-3 border-b border-emerald-100 pb-4 pt-1">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
                   <HeartHandshake className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-white text-base font-['Noto_Sans_Devanagari']">
+                  <h3 className="font-black text-slate-900 text-base font-['Noto_Sans_Devanagari']">
                     करुणा सेवा न्यास संदेश
                   </h3>
-                  <p className="text-xs text-amber-300/90 font-medium">सेवा ही संकल्प, करुणा ही हमारा धर्म</p>
+                  <p className="text-xs text-emerald-700 font-bold">सेवा ही संकल्प, करुणा ही हमारा धर्म</p>
                 </div>
               </div>
 
               {/* Image Preview Box with Lightbox trigger */}
               <div 
                 onClick={() => setIsLightboxOpen(true)}
-                className="relative overflow-hidden rounded-2xl border border-amber-400/30 group/img cursor-pointer shadow-lg aspect-[16/9]"
+                className="relative overflow-hidden rounded-2xl border border-emerald-300 group/img cursor-pointer shadow-lg aspect-[16/9]"
               >
                 <img
                   src="/assets/main_banner.jpg"
@@ -179,39 +179,39 @@ export const Hero: React.FC<HeroProps> = ({
                   className="w-full h-full object-cover object-top group-hover/img:scale-105 transition duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-                  <span className="text-xs text-amber-300 font-bold flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-amber-400/40">
-                    <ZoomIn className="w-3.5 h-3.5 text-amber-300" />
+                  <span className="text-xs text-white font-bold flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                    <ZoomIn className="w-3.5 h-3.5 text-emerald-300" />
                     <span>क्लिक करके पूरा पोस्टर खोलें (Expand Poster)</span>
                   </span>
                 </div>
               </div>
 
               {/* Live Contact Strip */}
-              <div className="space-y-2 text-xs text-emerald-100 font-medium">
-                <div className="flex items-center gap-2.5 bg-white/5 p-2.5 rounded-xl border border-white/10">
-                  <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span className="font-mono font-bold text-white">+91 79053 57033</span>
+              <div className="space-y-2 text-xs text-slate-700 font-medium">
+                <div className="flex items-center gap-2.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-200">
+                  <Phone className="w-4 h-4 text-emerald-700 shrink-0" />
+                  <span className="font-mono font-bold text-slate-900">+91 79053 57033</span>
                 </div>
-                <div className="flex items-center gap-2.5 bg-white/5 p-2.5 rounded-xl border border-white/10">
-                  <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span className="font-mono">Indo@karunasevatrust.com</span>
+                <div className="flex items-center gap-2.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-200">
+                  <Mail className="w-4 h-4 text-emerald-700 shrink-0" />
+                  <span className="font-mono text-slate-900">{TRUST_INFO.email}</span>
                 </div>
-                <div className="flex items-center gap-2.5 bg-white/5 p-2.5 rounded-xl border border-white/10">
-                  <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>Gorakhpur, Uttar Pradesh, India</span>
+                <div className="flex items-center gap-2.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-200">
+                  <MapPin className="w-4 h-4 text-emerald-700 shrink-0" />
+                  <span className="font-bold text-slate-800">Gorakhpur, Uttar Pradesh, India</span>
                 </div>
               </div>
 
               {/* Tax Exemption Banner Badge */}
-              <div className="bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 p-3.5 rounded-2xl flex items-center justify-between gap-3 shadow-lg font-bold">
+              <div className="bg-emerald-700 text-white p-3.5 rounded-2xl flex items-center justify-between gap-3 shadow-lg font-bold">
                 <div className="flex items-center gap-2.5">
-                  <ShieldCheck className="w-5 h-5 text-slate-950 shrink-0" />
+                  <ShieldCheck className="w-5 h-5 text-emerald-200 shrink-0" />
                   <div>
                     <div className="text-xs font-black">80G आयकर छूट मान्य</div>
-                    <div className="text-[10px] text-slate-900 font-semibold">100% पारदर्शी जनसेवा संस्था</div>
+                    <div className="text-[10px] text-emerald-100 font-semibold">100% पारदर्शी जनसेवा संस्था</div>
                   </div>
                 </div>
-                <span className="text-[10px] bg-slate-950 text-amber-300 px-2.5 py-1 rounded-md font-mono">100% Tax Free</span>
+                <span className="text-[10px] bg-white text-emerald-900 px-2.5 py-1 rounded-md font-mono font-extrabold">100% Tax Free</span>
               </div>
             </div>
           </motion.div>

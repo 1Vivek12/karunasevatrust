@@ -87,55 +87,60 @@ export const VolunteerSection: React.FC<VolunteerSectionProps> = ({ language }) 
         {!isSubmitted ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Left Info Column */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-emerald-800 to-green-900 text-white p-8 rounded-3xl shadow-lg space-y-6">
+            {/* Left Info Column - Light Green Aesthetic */}
+            <div className="lg:col-span-5 bg-gradient-to-br from-emerald-100 via-green-50 to-emerald-100 text-slate-900 p-8 rounded-3xl border-2 border-emerald-300 shadow-md space-y-6">
               <div className="space-y-2">
-                <span className="text-amber-300 font-bold text-xs uppercase tracking-wider">
+                <span className="text-emerald-800 font-extrabold text-xs uppercase tracking-wider bg-white/80 px-3 py-1 rounded-full border border-emerald-200 shadow-2xs">
                   स्वयंसेवक बनने के लाभ
                 </span>
-                <h3 className="text-2xl font-bold font-['Noto_Sans_Devanagari']">
+                <h3 className="text-2xl font-black font-['Noto_Sans_Devanagari'] text-emerald-950">
                   क्यों जुड़ें करुणा सेवा ट्रस्ट से?
                 </h3>
               </div>
 
-              <div className="space-y-4 text-sm text-emerald-100">
+              <div className="space-y-4 text-sm text-slate-700">
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                  <CheckCircle className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-white">आधिकारिक स्वयंसेवक प्रमाण पत्र</h4>
-                    <p className="text-xs text-emerald-200 mt-0.5">सफल सेवा सहभागिता पर ट्रस्ट का सर्टिफिकेट प्रदान किया जाता है।</p>
+                    <h4 className="font-extrabold text-slate-900">आधिकारिक स्वयंसेवक प्रमाण पत्र</h4>
+                    <p className="text-xs text-slate-600 mt-0.5">सफल सेवा सहभागिता पर ट्रस्ट का सर्टिफिकेट प्रदान किया जाता है।</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Award className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                  <Award className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-white">समाज सेवा एवं आत्मसंतुष्टि</h4>
-                    <p className="text-xs text-emerald-200 mt-0.5">जरूरतमंदों के चेहरे पर मुस्कान लाने की असीम आध्यात्मिक अनुभूति।</p>
+                    <h4 className="font-extrabold text-slate-900">समाज सेवा एवं आत्मसंतुष्टि</h4>
+                    <p className="text-xs text-slate-600 mt-0.5">जरूरतमंदों के चेहरे पर मुस्कान लाने की असीम आध्यात्मिक अनुभूति।</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <ShieldCheck className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+                  <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-bold text-white">कौशल एवं नेतृत्व विकास</h4>
-                    <p className="text-xs text-emerald-200 mt-0.5">इवेंट मैनेजमेंट, टीम लीडरशिप और कम्युनिकेशन स्किल्स का विकास।</p>
+                    <h4 className="font-extrabold text-slate-900">कौशल एवं नेतृत्व विकास</h4>
+                    <p className="text-xs text-slate-600 mt-0.5">इवेंट मैनेजमेंट, टीम लीडरशिप और कम्युनिकेशन स्किल्स का विकास।</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-emerald-800/80 p-4 rounded-2xl border border-emerald-700 text-xs text-emerald-200 space-y-1">
-                <p className="font-bold text-amber-300">विशेष नोट:</p>
-                <p>स्वयंसेवक के रूप में जुड़ने के लिए किसी भी प्रकार की सदस्यता फीस की आवश्यकता नहीं है।</p>
+              <div className="bg-white/90 p-4 rounded-2xl border-2 border-emerald-300 text-xs text-emerald-950 space-y-1 shadow-xs">
+                <p className="font-black text-emerald-800 text-sm">विशेष नोट:</p>
+                <p className="font-bold">स्वयंसेवक के रूप में जुड़ने हेतु सदस्यता फीस मात्र ₹11 रखी गई है।</p>
               </div>
             </div>
 
             {/* Right Registration Form */}
-            <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-emerald-100 shadow-sm">
+            <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-emerald-200 shadow-sm">
               <form onSubmit={handleSubmit} className="space-y-5">
-                <h3 className="text-xl font-bold text-slate-900 font-['Noto_Sans_Devanagari']">
-                  स्वयंसेवक पंजीकरण फॉर्म (Volunteer Registration)
-                </h3>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-emerald-100 pb-3">
+                  <h3 className="text-xl font-bold text-slate-900 font-['Noto_Sans_Devanagari']">
+                    स्वयंसेवक पंजीकरण फॉर्म (Volunteer Registration)
+                  </h3>
+                  <span className="bg-emerald-700 text-white text-xs font-black px-3 py-1 rounded-full shadow-xs shrink-0 w-fit">
+                    सदस्यता फीस: ₹11
+                  </span>
+                </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -232,7 +237,7 @@ export const VolunteerSection: React.FC<VolunteerSectionProps> = ({ language }) 
                   className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-base py-3.5 rounded-2xl shadow-lg shadow-emerald-800/20 hover:shadow-xl transition flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Send className="w-5 h-5" />
-                  <span>स्वयंसेवक पंजीकरण जमा करें</span>
+                  <span>स्वयंसेवक पंजीकरण जमा करें (सदस्यता फीस ₹11)</span>
                 </button>
               </form>
             </div>
