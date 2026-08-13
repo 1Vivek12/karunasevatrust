@@ -140,11 +140,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span>{language === 'hi' ? 'स्वयंसेवक बनें' : 'Join Us'}</span>
           </button>
           
-          {/* Donate Button (Primary Accent Emerald/Gold gradient button) */}
+          {/* Donate Button matching Mockup (Solid Green rounded-xl) */}
           <button
             onClick={onOpenDonateModal}
             aria-haspopup="dialog"
-            className="bg-gradient-to-r from-emerald-700 via-emerald-800 to-[#D4AF37] hover:from-emerald-800 hover:to-[#C5A028] text-white font-extrabold px-5 sm:px-6 min-h-[44px] rounded-full shadow-md shadow-emerald-800/20 hover:shadow-lg transition-all flex items-center gap-2 group transform active:scale-95 cursor-pointer text-sm sm:text-base"
+            className="bg-[#156d25] hover:bg-[#11571d] text-white font-black px-5 sm:px-6 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2 group cursor-pointer text-sm sm:text-base"
           >
             <Heart className="w-4 h-4 fill-white text-white group-hover:scale-110 transition-transform" aria-hidden="true" />
             <span>{language === 'hi' ? 'दान करें' : 'Donate Now'}</span>

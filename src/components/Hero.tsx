@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TRUST_INFO } from '../data/ngoData';
-import { Heart, Users, Sparkles, Leaf, ShieldCheck, HeartHandshake, X, ZoomIn, Phone, Mail, MapPin, Scale, BookOpen, Utensils, Trees, Eye } from 'lucide-react';
+import { Heart, Users, Leaf, Eye, X, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface HeroProps {
@@ -16,210 +16,148 @@ export const Hero: React.FC<HeroProps> = ({
 }) => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
-  const causesList = [
-    { labelHi: 'पर्यावरण', labelEn: 'Environment', icon: Trees, color: 'from-emerald-500 to-green-600' },
-    { labelHi: 'भोजन सेवा', labelEn: 'Food Drive', icon: Utensils, color: 'from-amber-500 to-orange-600' },
-    { labelHi: 'शिक्षा', labelEn: 'Education', icon: BookOpen, color: 'from-blue-500 to-indigo-600' },
-    { labelHi: 'विधि सहायता', labelEn: 'Legal Aid', icon: Scale, color: 'from-purple-500 to-indigo-600' },
-    { labelHi: 'मानव सेवा', labelEn: 'Humanity', icon: HeartHandshake, color: 'from-rose-500 to-pink-600' },
-  ];
-
   return (
-    <section className="relative overflow-hidden bg-emerald-950 text-white min-h-[580px] lg:min-h-[640px] flex items-center border-b-4 border-[#D4AF37]">
-      {/* 1. CINEMATIC BACKGROUND IMAGE BACKDROP (The requested photo as background) */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/assets/main_banner.jpg"
-          alt="Karuna Seva Trust Background Banner"
-          className="w-full h-full object-cover object-center scale-105 filter contrast-[1.05] brightness-90 transition-transform duration-1000"
-        />
-        {/* Layer 1: Emerald Gradient Overlay for High Readability & Fresh Look */}
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/85 via-emerald-800/75 to-green-900/80" />
-        {/* Layer 2: Top and Bottom Decorative Glow Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-emerald-900/80" />
-        {/* Layer 3: Decorative Radial Light Spotlight */}
-        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-emerald-400/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-emerald-300/15 rounded-full blur-3xl pointer-events-none" />
-      </div>
+    <section className="relative overflow-hidden bg-gradient-to-br from-emerald-50/80 via-white to-green-50/80 py-12 lg:py-20 border-b border-emerald-100">
+      {/* Decorative ambient leaf pattern glows */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-200/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-200/30 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Decorative Border Top Strip */}
-      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-emerald-300 via-emerald-400 to-green-300 z-20" />
-
-      {/* 2. FOREGROUND CONTENT & DECORATIVE HERO CONTAINER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12 lg:py-16 w-full space-y-8">
-        
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Column: Heading, Slogan, Causes Bar & Action Buttons */}
+          {/* Left Side Content matching Mockup */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-7 space-y-6 text-center lg:text-left"
+            className="lg:col-span-6 space-y-6 text-center lg:text-left"
           >
-            {/* Top Registration Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-md border border-emerald-300 text-emerald-950 px-4 py-1.5 rounded-full text-xs sm:text-sm font-extrabold shadow-lg">
-              <Sparkles className="w-4 h-4 text-emerald-700 animate-pulse" />
-              <span>पंजीकृत सार्वजनिक जनसेवा न्यास • 80G Certified</span>
-            </div>
-
-            {/* Main Decorative Title */}
+            {/* Title */}
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] font-['Noto_Sans_Devanagari'] drop-shadow-lg text-white">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#156d25] font-['Noto_Sans_Devanagari'] tracking-tight drop-shadow-xs">
                 {language === 'hi' ? TRUST_INFO.nameHi : TRUST_INFO.nameEn}
               </h1>
 
-              {/* Tagline Line Decoration */}
-              <div className="flex items-center justify-center lg:justify-start gap-3 text-emerald-200 text-sm sm:text-base md:text-lg font-bold py-1">
-                <span className="h-0.5 w-10 bg-gradient-to-r from-transparent to-emerald-300 rounded-full"></span>
-                <Leaf className="w-5 h-5 text-emerald-300" />
-                <span className="text-emerald-100 font-extrabold tracking-wide drop-shadow-sm font-['Noto_Sans_Devanagari']">
-                  {language === 'hi' ? TRUST_INFO.taglineHi : TRUST_INFO.taglineEn}
-                </span>
-                <Leaf className="w-5 h-5 text-emerald-300" />
-                <span className="h-0.5 w-10 bg-gradient-to-l from-transparent to-emerald-300 rounded-full"></span>
+              {/* Tagline Badge with Leaf Ornaments */}
+              <div className="flex items-center justify-center lg:justify-start gap-2 text-slate-800 text-base sm:text-lg font-bold font-['Noto_Sans_Devanagari']">
+                <span className="text-emerald-600 font-bold">🍃 —</span>
+                <span className="text-slate-900 font-extrabold">{language === 'hi' ? TRUST_INFO.taglineHi : TRUST_INFO.taglineEn}</span>
+                <span className="text-emerald-600 font-bold">— 🍃</span>
               </div>
             </div>
 
-            {/* Quote Box Callout */}
-            <div className="bg-white/15 backdrop-blur-md border border-white/25 p-4 rounded-2xl max-w-2xl mx-auto lg:mx-0 shadow-xl">
-              <p className="text-emerald-50 text-base sm:text-lg font-medium leading-relaxed font-['Noto_Sans_Devanagari']">
-                "आओ मिलकर बनाएं एक बेहतर, करुणामय समाज — मानवता की सेवा ही हमारा सर्वोपरि कर्तव्य एवं संकल्प है।"
-              </p>
-            </div>
+            {/* Subtitle Paragraph */}
+            <p className="text-slate-600 text-base sm:text-lg font-medium leading-relaxed font-['Noto_Sans_Devanagari'] max-w-xl mx-auto lg:mx-0">
+              {language === 'hi' ? TRUST_INFO.heroSubtitleHi : TRUST_INFO.heroSubtitleEn}
+            </p>
 
-            {/* 5 Cause Pills Decorative Grid */}
-            <div className="pt-1">
-              <p className="text-xs text-emerald-200 font-bold uppercase tracking-wider mb-2 font-['Noto_Sans_Devanagari'] text-center lg:text-left">
-                न्यास के मुख्य सेवा क्षेत्र (Core Service Pillars)
-              </p>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5">
-                {causesList.map((c, idx) => {
-                  const IconComp = c.icon;
-                  return (
-                    <span
-                      key={idx}
-                      className="inline-flex items-center gap-1.5 bg-white/90 hover:bg-white text-emerald-950 border border-emerald-200 backdrop-blur-md text-xs sm:text-sm px-3.5 py-1.5 rounded-full font-extrabold shadow-md transition-all hover:border-emerald-400"
-                    >
-                      <IconComp className="w-4 h-4 text-emerald-700" />
-                      <span>{language === 'hi' ? c.labelHi : c.labelEn}</span>
-                    </span>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Hero Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-3">
-              {/* Donate Button */}
+            {/* Buttons matching Mockup: Solid Green & Outline Green */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
               <button
                 onClick={onOpenDonateModal}
-                aria-haspopup="dialog"
-                className="bg-emerald-700 hover:bg-emerald-800 text-white font-black text-lg px-8 py-3.5 rounded-full shadow-2xl shadow-emerald-900/40 transition-all flex items-center gap-2.5 cursor-pointer group transform hover:scale-105 active:scale-95 min-h-[44px] border-2 border-emerald-500"
+                className="bg-[#156d25] hover:bg-[#11571d] text-white font-extrabold text-base sm:text-lg px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition flex items-center gap-2.5 cursor-pointer transform hover:scale-102"
               >
-                <Heart className="w-5 h-5 fill-white text-white group-hover:scale-110 transition-transform" />
-                <span>{language === 'hi' ? 'ऑनलाइन दान करें' : 'Donate Now'}</span>
+                <Heart className="w-5 h-5 fill-white text-white" />
+                <span>{language === 'hi' ? 'दान करें' : 'Donate Now'}</span>
               </button>
 
-              {/* Volunteer Button - Glass Accent */}
               <button
                 onClick={onOpenVolunteer}
-                className="bg-white hover:bg-emerald-50 text-emerald-950 border-2 border-emerald-300 font-extrabold text-lg px-7 py-3.5 rounded-full shadow-lg backdrop-blur-md hover:border-emerald-500 transition-all flex items-center gap-2.5 cursor-pointer group min-h-[44px]"
+                className="border-2 border-[#156d25] text-[#156d25] bg-white hover:bg-emerald-50 font-extrabold text-base sm:text-lg px-7 py-3.5 rounded-xl shadow-xs hover:shadow transition flex items-center gap-2.5 cursor-pointer transform hover:scale-102"
               >
-                <Users className="w-5 h-5 text-emerald-700 group-hover:scale-110 transition-transform" />
-                <span>{language === 'hi' ? 'स्वयंसेवक बनें' : 'Join Us'}</span>
+                <Users className="w-5 h-5 text-[#156d25]" />
+                <span>{language === 'hi' ? 'हमसे जुड़ें' : 'Join Us'}</span>
               </button>
 
-              {/* View Full Original Poster Lightbox Button */}
               <button
                 onClick={() => setIsLightboxOpen(true)}
-                className="bg-white/10 hover:bg-white/20 text-white border border-white/30 text-xs sm:text-sm font-bold px-4 py-3.5 rounded-full backdrop-blur-md transition flex items-center gap-2 cursor-pointer shadow-md"
+                className="bg-emerald-100/70 hover:bg-emerald-200 text-emerald-900 text-xs sm:text-sm font-bold px-4 py-3.5 rounded-xl transition flex items-center gap-1.5 cursor-pointer shadow-2xs border border-emerald-300/60"
               >
-                <Eye className="w-4 h-4 text-emerald-300" />
-                <span>{language === 'hi' ? 'मूल पोस्टर देखें' : 'View Full Poster'}</span>
+                <Eye className="w-4 h-4 text-emerald-700" />
+                <span>{language === 'hi' ? 'मूल पोस्टर' : 'Poster'}</span>
               </button>
             </div>
           </motion.div>
 
-          {/* Right Column: Decorative Bright Light Green Spotlight Card */}
+          {/* Right Side: Collaged Diamond Frames matching Mockup */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-5 space-y-4"
+            className="lg:col-span-6 relative flex items-center justify-center py-4"
           >
-            {/* Bright Light Green Card Container */}
-            <div className="bg-white/95 backdrop-blur-xl p-6 rounded-3xl border-2 border-emerald-300 shadow-2xl space-y-5 relative overflow-hidden group text-slate-900">
-              {/* Top Accent Ribbon */}
-              <div className="absolute top-0 right-0 bg-emerald-700 text-white font-black text-[10px] uppercase px-3 py-1 rounded-bl-xl shadow-md">
-                100% Certified Public Trust
-              </div>
-
-              {/* Header Box */}
-              <div className="flex items-center gap-3 border-b border-emerald-100 pb-4 pt-1">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 shrink-0">
-                  <HeartHandshake className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-black text-slate-900 text-base font-['Noto_Sans_Devanagari']">
-                    करुणा सेवा न्यास संदेश
-                  </h3>
-                  <p className="text-xs text-emerald-700 font-bold">सेवा ही संकल्प, करुणा ही हमारा धर्म</p>
-                </div>
-              </div>
-
-              {/* Image Preview Box with Lightbox trigger */}
-              <div 
-                onClick={() => setIsLightboxOpen(true)}
-                className="relative overflow-hidden rounded-2xl border border-emerald-300 group/img cursor-pointer shadow-lg aspect-[16/9]"
-              >
+            {/* Center Background Image: Plant sapling backdrop */}
+            <div className="relative w-full max-w-[500px] h-[360px] sm:h-[420px] flex items-center justify-center">
+              
+              {/* Background Sapling Image */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-lg border-2 border-emerald-200/60">
                 <img
-                  src="/assets/main_banner.jpg"
-                  alt="Trust Poster Banner"
-                  className="w-full h-full object-cover object-top group-hover/img:scale-105 transition duration-500"
+                  src="/assets/tree_plantation.jpg"
+                  alt="Tree Plantation Sapling"
+                  className="w-full h-full object-cover opacity-85 filter contrast-[1.05]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
-                  <span className="text-xs text-white font-bold flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                    <ZoomIn className="w-3.5 h-3.5 text-emerald-300" />
-                    <span>क्लिक करके पूरा पोस्टर खोलें (Expand Poster)</span>
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent" />
               </div>
 
-              {/* Live Contact Strip */}
-              <div className="space-y-2 text-xs text-slate-700 font-medium">
-                <div className="flex items-center gap-2.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-200">
-                  <Phone className="w-4 h-4 text-emerald-700 shrink-0" />
-                  <span className="font-mono font-bold text-slate-900">+91 79053 57033</span>
-                </div>
-                <div className="flex items-center gap-2.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-200">
-                  <Mail className="w-4 h-4 text-emerald-700 shrink-0" />
-                  <span className="font-mono text-slate-900">{TRUST_INFO.email}</span>
-                </div>
-                <div className="flex items-center gap-2.5 bg-emerald-50/80 p-2.5 rounded-xl border border-emerald-200">
-                  <MapPin className="w-4 h-4 text-emerald-700 shrink-0" />
-                  <span className="font-bold text-slate-800">Gorakhpur, Uttar Pradesh, India</span>
-                </div>
-              </div>
+              {/* Tilted Collage Frames Cluster (Mockup Right Side) */}
+              <div className="relative z-10 w-full h-full flex items-center justify-end pr-2 sm:pr-6">
+                <div className="grid grid-cols-2 gap-3 max-w-[340px] sm:max-w-[380px]">
+                  
+                  {/* Frame 1: Food Distribution */}
+                  <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-4 border-white shadow-xl transform -rotate-3 hover:rotate-0 transition duration-300 group cursor-pointer" onClick={() => setIsLightboxOpen(true)}>
+                    <img
+                      src="/assets/food_distribution.jpg"
+                      alt="Food Service"
+                      className="w-full h-full object-cover group-hover:scale-105 transition"
+                    />
+                  </div>
 
-              {/* Tax Exemption Banner Badge */}
-              <div className="bg-emerald-700 text-white p-3.5 rounded-2xl flex items-center justify-between gap-3 shadow-lg font-bold">
-                <div className="flex items-center gap-2.5">
-                  <ShieldCheck className="w-5 h-5 text-emerald-200 shrink-0" />
-                  <div>
-                    <div className="text-xs font-black">80G आयकर छूट मान्य</div>
-                    <div className="text-[10px] text-emerald-100 font-semibold">100% पारदर्शी जनसेवा संस्था</div>
+                  {/* Frame 2: Doctor Healthcare Camp */}
+                  <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-4 border-white shadow-xl transform rotate-3 hover:rotate-0 transition duration-300 group cursor-pointer" onClick={() => setIsLightboxOpen(true)}>
+                    <img
+                      src="/assets/healthcare_camp.jpg"
+                      alt="Health Service"
+                      className="w-full h-full object-cover group-hover:scale-105 transition"
+                    />
+                  </div>
+
+                  {/* Frame 3: Blanket & Clothes Distribution */}
+                  <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-4 border-white shadow-xl transform rotate-2 hover:rotate-0 transition duration-300 group cursor-pointer" onClick={() => setIsLightboxOpen(true)}>
+                    <img
+                      src="/assets/blanket_distribution.jpg"
+                      alt="Clothes Service"
+                      className="w-full h-full object-cover group-hover:scale-105 transition"
+                    />
+                  </div>
+
+                  {/* Frame 4: Trust Founder / Official Banner */}
+                  <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden border-4 border-white shadow-xl transform -rotate-2 hover:rotate-0 transition duration-300 group cursor-pointer" onClick={() => setIsLightboxOpen(true)}>
+                    <img
+                      src="/assets/main_banner.jpg"
+                      alt="Trust Banner"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition"
+                    />
                   </div>
                 </div>
-                <span className="text-[10px] bg-white text-emerald-900 px-2.5 py-1 rounded-md font-mono font-extrabold">100% Tax Free</span>
               </div>
+
+              {/* Round Emblem Badge (Exact Mockup: "मानवता हमारी पहचान") */}
+              <div className="absolute bottom-2 left-2 sm:left-4 bg-white border-2 border-[#156d25] shadow-2xl rounded-full p-3 flex flex-col items-center justify-center text-center w-28 h-28 sm:w-32 sm:h-32 shrink-0 z-20 animate-pulse">
+                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-[#156d25] mb-1">
+                  <Heart className="w-5 h-5 fill-[#156d25]" />
+                </div>
+                <span className="text-[11px] sm:text-xs font-black text-[#156d25] font-['Noto_Sans_Devanagari'] leading-tight">
+                  मानवता<br />हमारी पहचान
+                </span>
+              </div>
+
             </div>
           </motion.div>
 
         </div>
       </div>
 
-      {/* 3. LIGHTBOX MODAL FOR FULL HD POSTER BANNER */}
+      {/* Lightbox Modal for Poster Banner */}
       <AnimatePresence>
         {isLightboxOpen && (
           <motion.div
@@ -227,7 +165,7 @@ export const Hero: React.FC<HeroProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/92 backdrop-blur-lg p-4"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
             onClick={() => setIsLightboxOpen(false)}
           >
             <button
@@ -243,7 +181,7 @@ export const Hero: React.FC<HeroProps> = ({
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               src="/assets/main_banner.jpg"
               alt="Karuna Seva Trust Official Poster Banner"
-              className="max-w-full max-h-[92vh] object-contain rounded-2xl shadow-2xl border-2 border-[#D4AF37]/60"
+              className="max-w-full max-h-[92vh] object-contain rounded-2xl shadow-2xl border-2 border-emerald-400"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
