@@ -285,7 +285,7 @@ export const TRUSTEES_DATA: TrusteeMember[] = [
     id: 't2',
     name: 'श्री अर्जुन कुमार',
     role: 'वृक्षारोपण प्रमुख (Tree Plantation Head)',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop',
+    image: '/assets/arjun_kumar.jpg',
     bio: '5 वर्षों का अनुभव। पर्यावरण संरक्षण, बड़े पैमाने पर पौधरोपण एवं हरित धरा अभियानों का कुशल प्रबंधन।'
   }
 ];
