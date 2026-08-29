@@ -16,7 +16,7 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
   const [isCustom, setIsCustom] = useState<boolean>(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
-  const presetAmounts = [101, 501, 1101, 5101];
+  const presetAmounts = [101, 501, 1100, 5100];
 
   const handleAmountSelect = (amt: number) => {
     setIsCustom(false);
@@ -61,9 +61,9 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
         <div className="bg-white/80 p-1.5 rounded-2xl border border-emerald-200 shadow-xs flex gap-1 w-full sm:w-auto">
           <button
             onClick={() => setActiveTab('upi')}
-            className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-2 ${
+            className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-2 cursor-pointer ${
               activeTab === 'upi'
-                ? 'bg-emerald-700 text-white shadow-md'
+                ? 'bg-[#1a702b] text-white shadow-md'
                 : 'text-emerald-800 hover:text-emerald-950 hover:bg-emerald-100/60'
             }`}
           >
@@ -72,9 +72,9 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
           </button>
           <button
             onClick={() => setActiveTab('bank')}
-            className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-2 ${
+            className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-extrabold transition-all flex items-center justify-center gap-2 cursor-pointer ${
               activeTab === 'bank'
-                ? 'bg-emerald-700 text-white shadow-md'
+                ? 'bg-[#1a702b] text-white shadow-md'
                 : 'text-emerald-800 hover:text-emerald-950 hover:bg-emerald-100/60'
             }`}
           >
@@ -93,17 +93,19 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
             {/* Left side: Amount selection */}
             <div className="md:col-span-6 space-y-4">
               <label className="text-sm font-bold text-emerald-950 block font-['Noto_Sans_Devanagari']">
-                {language === 'hi' ? 'दान राशि का चयन करें (Select Donation Amount):' : 'Select Donation Amount:'}
+                {language === 'hi' ? 'दान राशि चुनें (Select Donation Amount):' : 'Select Donation Amount:'}
               </label>
 
+              {/* Preset 101, 501, 1100, 5100 buttons */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {presetAmounts.map((amt) => (
                   <button
                     key={amt}
+                    type="button"
                     onClick={() => handleAmountSelect(amt)}
-                    className={`py-3 px-2 rounded-xl text-sm font-extrabold transition-all border ${
+                    className={`py-3 px-2 rounded-xl text-base font-black transition-all border cursor-pointer ${
                       !isCustom && selectedAmount === amt
-                        ? 'bg-emerald-700 text-white border-emerald-700 shadow-md font-black'
+                        ? 'bg-[#1a702b] text-white border-[#1a702b] shadow-md font-black scale-102'
                         : 'bg-white hover:bg-emerald-100/80 text-emerald-950 border-emerald-300 shadow-xs'
                     }`}
                   >
@@ -113,31 +115,36 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
               </div>
 
               {/* Custom Amount input */}
-              <div className="pt-2">
+              <div className="pt-2 bg-emerald-50/80 border border-emerald-300/80 p-4 rounded-2xl space-y-2">
+                <span className="text-xs font-extrabold text-[#1a702b] block">
+                  न्यूनतम / इच्छानुसार अन्य राशि दर्ज करने के लिए नीचे लिखें:
+                </span>
                 {!isCustom ? (
                   <button
+                    type="button"
                     onClick={() => {
                       setIsCustom(true);
                       setSelectedAmount(0);
                     }}
-                    className="text-xs text-emerald-800 hover:text-emerald-950 font-bold underline"
+                    className="w-full bg-white hover:bg-emerald-100 text-[#1a702b] border-2 border-emerald-300 font-extrabold text-xs sm:text-sm py-2.5 px-4 rounded-xl shadow-2xs transition text-center cursor-pointer"
                   >
-                    + {language === 'hi' ? 'अन्य राशि दर्ज करें' : 'Enter Custom Amount'}
+                    ✏️ + {language === 'hi' ? 'अपनी इच्छानुसार अन्य राशि दर्ज करें' : 'Enter Custom Amount'}
                   </button>
                 ) : (
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-emerald-800">₹</span>
+                    <span className="text-xl font-black text-[#1a702b]">₹</span>
                     <input
                       type="text"
-                      placeholder="उदा. 2500"
+                      placeholder="उदा. 2100"
                       value={customAmount}
                       onChange={handleCustomChange}
-                      className="flex-1 max-w-[200px] px-4 py-2.5 bg-white border-2 border-emerald-400 rounded-xl text-base font-bold text-slate-900 focus:outline-none focus:border-emerald-600"
+                      className="flex-1 px-4 py-2 bg-white border-2 border-[#1a702b] rounded-xl text-lg font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-200"
                       autoFocus
                     />
                     <button
+                      type="button"
                       onClick={() => handleAmountSelect(101)}
-                      className="text-xs bg-emerald-200 hover:bg-emerald-300 text-emerald-900 px-3.5 py-2.5 rounded-xl font-bold"
+                      className="text-xs bg-emerald-200 hover:bg-emerald-300 text-emerald-900 px-3.5 py-2.5 rounded-xl font-bold cursor-pointer"
                     >
                       {language === 'hi' ? 'रद्द करें' : 'Cancel'}
                     </button>
@@ -145,8 +152,8 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
                 )}
               </div>
 
-              <div className="text-xs text-slate-700 space-y-1 pt-2 font-['Noto_Sans_Devanagari']">
-                <p className="font-bold text-emerald-900">✓ {language === 'hi' ? 'डायनेमिक क्यूआर जनरेशन:' : 'Dynamic QR Generation:'}</p>
+              <div className="text-xs text-slate-700 space-y-1 pt-1 font-['Noto_Sans_Devanagari']">
+                <p className="font-bold text-[#1a702b]">✓ {language === 'hi' ? 'डायनेमिक क्यूआर जनरेशन:' : 'Dynamic QR Generation:'}</p>
                 <p>{language === 'hi' ? 'जैसे ही आप दान राशि बदलते हैं, क्यूआर कोड स्वतः ही उस राशि के अनुसार अपडेट हो जाता है।' : 'The QR code automatically updates dynamically with your chosen amount.'}</p>
               </div>
             </div>
@@ -179,10 +186,10 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
                 {/* Mobile direct pay link button */}
                 <a
                   href={upiURI}
-                  className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold py-3 px-6 rounded-2xl text-xs flex items-center justify-center gap-2 shadow-md transition-all active:scale-98"
+                  className="w-full bg-[#1a702b] hover:bg-[#145b22] text-white font-extrabold py-3 px-6 rounded-2xl text-xs flex items-center justify-center gap-2 shadow-md transition-all active:scale-98 cursor-pointer"
                 >
                   <PhoneCall className="w-4 h-4 text-emerald-100" />
-                  <span>{language === 'hi' ? 'यूपीआई ऐप से भुगतान करें' : 'Pay via UPI App'}</span>
+                  <span>{language === 'hi' ? `₹${currentAmount || 0} यूपीआई ऐप से भुगतान करें` : `Pay ₹${currentAmount || 0} via UPI App`}</span>
                 </a>
               </div>
             </div>
@@ -201,7 +208,7 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
                 </div>
                 <button
                   onClick={() => handleCopy(BANK_DETAILS.bankName, 'bank')}
-                  className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all"
+                  className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all cursor-pointer"
                   title="Copy Bank Name"
                 >
                   {copiedKey === 'bank' ? <Check className="w-4 h-4 text-emerald-700" /> : <Copy className="w-4 h-4" />}
@@ -216,7 +223,7 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
                 </div>
                 <button
                   onClick={() => handleCopy(BANK_DETAILS.accountName, 'name')}
-                  className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all"
+                  className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all cursor-pointer"
                   title="Copy Account Holder Name"
                 >
                   {copiedKey === 'name' ? <Check className="w-4 h-4 text-emerald-700" /> : <Copy className="w-4 h-4" />}
@@ -231,7 +238,7 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
                 </div>
                 <button
                   onClick={() => handleCopy(BANK_DETAILS.accountNumber, 'acc')}
-                  className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all"
+                  className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all cursor-pointer"
                   title="Copy Account Number"
                 >
                   {copiedKey === 'acc' ? <Check className="w-4 h-4 text-emerald-700" /> : <Copy className="w-4 h-4" />}
@@ -246,7 +253,7 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
                 </div>
                 <button
                   onClick={() => handleCopy(BANK_DETAILS.ifscCode, 'ifsc')}
-                  className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all"
+                  className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all cursor-pointer"
                   title="Copy IFSC Code"
                 >
                   {copiedKey === 'ifsc' ? <Check className="w-4 h-4 text-emerald-700" /> : <Copy className="w-4 h-4" />}
@@ -263,7 +270,7 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
               </div>
               <button
                 onClick={() => handleCopy(BANK_DETAILS.branch, 'branch')}
-                className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all"
+                className="p-2 rounded-xl bg-emerald-100 hover:bg-emerald-200 text-emerald-800 transition-all cursor-pointer"
                 title="Copy Branch Details"
               >
                 {copiedKey === 'branch' ? <Check className="w-4 h-4 text-emerald-700" /> : <Copy className="w-4 h-4" />}
@@ -274,7 +281,7 @@ export const PaymentHub: React.FC<PaymentHubProps> = ({ language, amount, onAmou
       </div>
 
       {copiedKey && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-emerald-800 text-white font-extrabold text-xs px-4 py-2 rounded-full shadow-lg animate-fade-in-up">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#1a702b] text-white font-extrabold text-xs px-4 py-2 rounded-full shadow-lg animate-fade-in-up">
           {language === 'hi' ? 'सफलतापूर्वक कॉपी हो गया!' : 'Successfully copied!'}
         </div>
       )}

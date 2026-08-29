@@ -130,7 +130,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate, langua
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full rounded-full object-cover"
+                    className="w-full h-full rounded-full object-cover object-top"
                     referrerPolicy="no-referrer"
                   />
                 </div>
