@@ -1,7 +1,7 @@
 import React from 'react';
 import { TRUST_INFO } from '../data/ngoData';
 import { ActiveTab } from '../types';
-import { Heart, ShieldCheck, MapPin, Phone, Mail, ChevronRight, Users } from 'lucide-react';
+import { Heart, ShieldCheck, MapPin, Phone, Mail, ChevronRight, Users, MessageSquare } from 'lucide-react';
 
 interface FooterProps {
   setActiveTab: (tab: ActiveTab) => void;
@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="bg-emerald-950 text-emerald-100 border-t-4 border-emerald-700 pt-12 pb-6">
+    <footer className="bg-emerald-950 text-emerald-100 border-t-4 border-[#1a702b] pt-12 pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-10">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -46,16 +46,16 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
 
             <p className="text-xs text-emerald-200/90 leading-relaxed">
-              करुणा सेवा ट्रस्ट एक पंजीकृत जनसेवा संस्था है जो भोजन, स्वास्थ्य, शिक्षा, वस्त्र वितरण और पर्यावरण संरक्षण के लिए समर्पित है।
+              करुणा सेवा ट्रस्ट एक पंजीकृत जनसेवा संस्था है जो वृक्षारोपण, भोजन सेवा, वस्त्र वितरण, शिक्षा सहायता, स्वास्थ्य शिविर और विवाह सहयोग के लिए समर्पित है।
             </p>
 
             <div className="bg-emerald-900/80 p-3 rounded-xl border border-emerald-800 text-xs space-y-1">
               <p className="font-bold text-amber-300 flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>80G आयकर छूट प्राप्त:</span>
+                <span>सरकारी पंजीकृत संस्था:</span>
               </p>
               <p className="text-[11px] text-emerald-200">
-                ट्रस्ट में दिया गया समस्त दान धारा 80G के तहत 50% कर मुक्त है।
+                100% पारदर्शी एवं सामाजिक कल्याण के लिए संकल्पित गैर-सरकारी संगठन।
               </p>
             </div>
           </div>
@@ -97,6 +97,12 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </li>
               <li>
+                <button onClick={() => handleNavClick('opinion')} className="hover:text-amber-300 flex items-center gap-1 transition min-h-[32px]">
+                  <ChevronRight className="w-3 h-3 text-emerald-500" />
+                  <span>सुझाव व क्षेत्र कार्य अनुरोध (Suggestions)</span>
+                </button>
+              </li>
+              <li>
                 <button onClick={() => handleNavClick('volunteer')} className="hover:text-amber-300 flex items-center gap-1 transition min-h-[32px]">
                   <ChevronRight className="w-3 h-3 text-emerald-500" />
                   <span>स्वयंसेवक बनें (Volunteer)</span>
@@ -111,12 +117,12 @@ export const Footer: React.FC<FooterProps> = ({
                प्रमुख सेवा अभियान
             </h4>
             <ul className="space-y-2 text-xs text-emerald-200">
-              <li>• भोजन सेवा (अन्नपूर्ण रसोई)</li>
-              <li>• निशुल्क स्वास्थ्य व नेत्र शिविर</li>
-              <li>• गरम वस्त्र व कंबल वितरण</li>
-              <li>• निर्धन कन्या विवाह सहयोग</li>
               <li>• हरित धरा वृक्षारोपण अभियान</li>
+              <li>• भोजन सेवा (अन्नपूर्णा रसोई)</li>
+              <li>• गरम वस्त्र व कंबल वितरण</li>
               <li>• बाल शिक्षा एवं पठन सामग्री</li>
+              <li>• निशुल्क स्वास्थ्य व नेत्र शिविर</li>
+              <li>• निर्धन कन्या विवाह सहयोग</li>
             </ul>
           </div>
 
@@ -151,10 +157,10 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 onClick={onOpenDonateModal}
                 aria-haspopup="dialog"
-                className="w-full bg-gradient-to-r from-emerald-600 to-[#D4AF37] hover:from-emerald-700 hover:to-[#C5A028] text-white font-black py-3 rounded-xl text-sm shadow transition flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
+                className="w-full bg-[#1a702b] hover:bg-[#145b22] text-white font-black py-3 rounded-xl text-sm shadow transition flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
               >
                 <Heart className="w-4 h-4 fill-white" aria-hidden="true" />
-                <span>{language === 'hi' ? 'ऑनलाइन दान करें' : 'Donate Now (80G Tax Free)'}</span>
+                <span>{language === 'hi' ? 'ऑनलाइन दान करें' : 'Donate Now'}</span>
               </button>
             </div>
           </div>
@@ -166,8 +172,6 @@ export const Footer: React.FC<FooterProps> = ({
           <p>© {new Date().getFullYear()} {TRUST_INFO.nameHi}. सर्वाधिकार सुरक्षित।</p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[11px]">
             <span>पंजीयन सं: {TRUST_INFO.regNo}</span>
-            <span className="hidden sm:inline">•</span>
-            <span className="font-mono text-emerald-500/80">e-Stamp: IN-UP61947604089839Y</span>
             <span className="hidden sm:inline">•</span>
             <span>#SevaParmodharma</span>
           </div>

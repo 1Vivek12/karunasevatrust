@@ -1,4 +1,4 @@
-export type ActiveTab = 'home' | 'about' | 'works' | 'activities' | 'gallery' | 'volunteer' | 'contact';
+export type ActiveTab = 'home' | 'about' | 'works' | 'activities' | 'gallery' | 'volunteer' | 'contact' | 'opinion';
 
 export interface ServiceCard {
   id: string;
@@ -78,7 +78,6 @@ export interface DonationFormData {
   panNumber: string;
   city: string;
   paymentMethod: 'upi' | 'card' | 'netbanking' | 'qr';
-  is80GRequired: boolean;
 }
 
 export interface VolunteerFormData {
@@ -103,3 +102,4 @@ export interface DonationReceipt {
   txnId: string;
   paymentMode: string;
 }
+

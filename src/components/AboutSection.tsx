@@ -34,7 +34,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate, langua
           
           <div className="bg-white p-8 rounded-3xl border border-emerald-100 shadow-sm space-y-4">
             <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
-              <Heart className="w-6 h-6 fill-emerald-700" />
+              <Heart className="w-6 h-6 fill-emerald-700 text-emerald-700" />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 font-['Noto_Sans_Devanagari']">
               {language === 'hi' ? 'हमारा लक्ष्य (Our Mission)' : 'Our Mission'}
@@ -58,40 +58,32 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate, langua
 
         </div>
 
-        {/* Legal Certification & 80G Tax Exemption */}
+        {/* Legal Certification & Registration Details */}
         <div className="bg-emerald-900 text-white p-8 rounded-3xl shadow-lg space-y-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-emerald-800 pb-6">
             <div className="space-y-2 text-center md:text-left">
               <span className="text-amber-400 font-bold text-xs uppercase tracking-wider">
-                वैधानिक मान्यता एवं कर छूट प्रमाणन
+                वैधानिक मान्यता एवं न्यास प्रमाणन
               </span>
               <h3 className="text-2xl font-bold font-['Noto_Sans_Devanagari']">
-                80G एवं 12A आयकर अधिनियम पंजीकृत ट्रस्ट
+                उत्तर प्रदेश सरकार द्वारा पंजीकृत जनसेवा न्यास
               </h3>
             </div>
             <button
               onClick={onOpenDonate}
-              className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-6 py-3 rounded-full text-sm shadow transition shrink-0"
+              className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-6 py-3 rounded-full text-sm shadow transition shrink-0 cursor-pointer"
             >
-              कर मुक्त दान करें (80G Benefit)
+              ऑनलाइन दान करें (Support Us)
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
             <div className="bg-emerald-800/80 p-4 rounded-xl space-y-1">
               <div className="text-amber-300 font-bold flex items-center gap-1.5">
                 <FileText className="w-4 h-4" />
-                <span>न्यास पंजीयन</span>
+                <span>न्यास पंजीयन क्रमांक</span>
               </div>
               <p className="text-emerald-100 font-mono">{TRUST_INFO.regNo}</p>
-            </div>
-
-            <div className="bg-emerald-800/80 p-4 rounded-xl space-y-1">
-              <div className="text-amber-300 font-bold flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4" />
-                <span>80G पंजीयन सं</span>
-              </div>
-              <p className="text-emerald-100 font-mono">TRUST/80G/2023/10492</p>
             </div>
 
             <div className="bg-emerald-800/80 p-4 rounded-xl space-y-1">
@@ -115,44 +107,44 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate, langua
         {/* Legal Compliance & Trust Registration Details */}
         <LegalCompliance language={language} />
 
-        {/* Trustees & Leadership Team */}
+        {/* Trustees & Leadership Team (ONLY 2 members: Abhinav Kumar & Arjun Kumar) */}
         <div className="space-y-8 pt-4">
           <div className="text-center space-y-2">
             <h2 className="text-3xl font-extrabold text-slate-900 font-['Noto_Sans_Devanagari']">
-              {language === 'hi' ? 'न्यास प्रबंधक एवं हमारी टीम' : 'Board of Trustees & Team'}
+              {language === 'hi' ? 'न्यास प्रबंधक एवं हमारी टीम' : 'Trust Management & Team'}
             </h2>
             <p className="text-slate-600 text-sm max-w-xl mx-auto font-['Noto_Sans_Devanagari']">
-              अनुभवी, निःस्वार्थ और समर्पित न्यासियों का समूह जो बिना किसी पारिश्रमिक के केवल समाज कल्याण हेतु कार्यरत हैं।
+              अनुभवी और समर्पित नेतृत्व जो निःस्वार्थ भाव से समाज कल्याण एवं पर्यावरण संरक्षण हेतु कार्यरत है।
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {TRUSTEES_DATA.map((member) => (
               <motion.div
                 key={member.id}
                 whileHover={{ y: -6, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="bg-white rounded-3xl overflow-hidden border border-emerald-500/10 hover:border-amber-500/20 shadow-sm hover:shadow-lg transition-all text-center p-6 space-y-4 flex flex-col items-center justify-between"
+                className="bg-white rounded-3xl overflow-hidden border border-emerald-500/20 hover:border-emerald-600/40 shadow-md hover:shadow-xl transition-all text-center p-8 space-y-5 flex flex-col items-center justify-between"
               >
-                <div className="relative w-28 h-28 rounded-2xl overflow-hidden border-2 border-amber-500/30 p-1 bg-gradient-to-tr from-amber-400/20 to-emerald-500/20 shadow-inner">
+                <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-[#1a702b] p-1 bg-gradient-to-tr from-amber-400/20 to-emerald-500/20 shadow-md">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full rounded-xl object-cover"
+                    className="w-full h-full rounded-full object-cover"
                     referrerPolicy="no-referrer"
                   />
                 </div>
                 
-                <div className="space-y-2 w-full">
+                <div className="space-y-3 w-full">
                   <div>
-                    <h4 className="font-extrabold text-slate-900 text-lg font-['Noto_Sans_Devanagari']">
+                    <h3 className="font-black text-slate-900 text-2xl font-['Noto_Sans_Devanagari']">
                       {member.name}
-                    </h4>
-                    <p className="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1 rounded-full inline-block mt-1 font-['Noto_Sans_Devanagari']">
+                    </h3>
+                    <p className="text-sm font-extrabold text-[#1a702b] bg-emerald-50 border border-emerald-200 px-4 py-1 rounded-full inline-block mt-2 font-['Noto_Sans_Devanagari'] shadow-2xs">
                       {member.role}
                     </p>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-['Noto_Sans_Devanagari'] line-clamp-4">
+                  <p className="text-sm text-slate-700 leading-relaxed font-['Noto_Sans_Devanagari'] font-medium">
                     {member.bio}
                   </p>
                 </div>

@@ -33,7 +33,7 @@ export const WorkDetailSection: React.FC<WorkDetailSectionProps> = ({
             {language === 'hi' ? 'करुणा सेवा ट्रस्ट के प्रमुख सेवा कार्य' : 'Key Services of Karuna Seva Trust'}
           </h1>
           <p className="text-slate-600 text-sm sm:text-base">
-            हम समाज के हर वर्ग तक पहुंचकर भोजन, स्वास्थ्य, शिक्षा, वस्त्र और पर्यावरण संरक्षण के क्षेत्र में नि:स्वार्थ कार्य कर रहे हैं।
+            हम समाज के हर वर्ग तक पहुंचकर वृक्षारोपण, भोजन, वस्त्र, शिक्षा, स्वास्थ्य और विवाह सहयोग के क्षेत्र में नि:स्वार्थ कार्य कर रहे हैं।
           </p>
         </div>
 
@@ -43,7 +43,7 @@ export const WorkDetailSection: React.FC<WorkDetailSectionProps> = ({
             onClick={() => setActiveFilter('all')}
             className={`px-4 py-2 rounded-full text-xs font-bold transition ${
               activeFilter === 'all'
-                ? 'bg-emerald-700 text-white shadow'
+                ? 'bg-[#1a702b] text-white shadow'
                 : 'bg-white text-slate-700 border border-slate-200 hover:bg-emerald-50'
             }`}
           >
@@ -55,7 +55,7 @@ export const WorkDetailSection: React.FC<WorkDetailSectionProps> = ({
               onClick={() => setActiveFilter(w.id)}
               className={`px-4 py-2 rounded-full text-xs font-bold transition ${
                 activeFilter === w.id
-                  ? 'bg-emerald-700 text-white shadow'
+                  ? 'bg-[#1a702b] text-white shadow'
                   : 'bg-white text-slate-700 border border-slate-200 hover:bg-emerald-50'
               }`}
             >
@@ -88,7 +88,7 @@ export const WorkDetailSection: React.FC<WorkDetailSectionProps> = ({
               <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <span className="w-3 h-3 rounded-full bg-emerald-600"></span>
+                    <span className="w-3 h-3 rounded-full bg-[#1a702b]"></span>
                     <h2 className="text-2xl font-black text-slate-900 font-['Noto_Sans_Devanagari']">
                       {language === 'hi' ? work.title : work.titleEn}
                     </h2>
@@ -103,25 +103,25 @@ export const WorkDetailSection: React.FC<WorkDetailSectionProps> = ({
                   </p>
 
                   <div className="bg-emerald-50/80 p-4 rounded-2xl border border-emerald-100 space-y-1.5 text-xs text-emerald-950 font-medium">
-                    <div className="flex items-center gap-2 font-bold text-emerald-800">
+                    <div className="flex items-center gap-2 font-bold text-[#1a702b]">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                       <span>प्रमुख विशेषताएँ व प्रभाव:</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 pl-1 text-slate-700">
                       <li>दैनिक एवं साप्ताहिक नियमित अभियानों का नि:शुल्क संचालन।</li>
                       <li>स्थानीय प्रशासन एवं निस्वार्थ वालंटियर्स के सहयोग से पूर्ण पारदर्शिता।</li>
-                      <li>दाता को लाइव फोटो एवं रसीद प्रमाण पत्र की व्यवस्था।</li>
+                      <li>दाता को लाइव फोटो एवं डिजिटल रसीद प्रमाण पत्र की व्यवस्था।</li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-                  <div className="text-xs text-slate-500 font-medium">
-                    80G कर लाभ सहित
+                  <div className="text-xs text-slate-500 font-bold">
+                    100% निष्काम पारदर्शी सेवा
                   </div>
                   <button
                     onClick={onOpenDonate}
-                    className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-6 py-2.5 rounded-full shadow flex items-center gap-2 transition cursor-pointer text-sm"
+                    className="bg-[#1a702b] hover:bg-[#145b22] text-white font-bold px-6 py-2.5 rounded-full shadow flex items-center gap-2 transition cursor-pointer text-sm"
                   >
                     <Heart className="w-4 h-4 fill-white" />
                     <span>इस कार्य में सहयोग करें</span>

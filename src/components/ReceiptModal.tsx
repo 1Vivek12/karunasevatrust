@@ -21,12 +21,10 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({
   };
 
   const getAmountInWords = (num: number): string => {
-    if (num === 100) return 'एक सौ रुपये मात्र (One Hundred Rupees Only)';
-    if (num === 500) return 'पांच सौ रुपये मात्र (Five Hundred Rupees Only)';
+    if (num === 101) return 'एक सौ एक रुपये मात्र (One Hundred One Rupees Only)';
+    if (num === 501) return 'पांच सौ एक रुपये मात्र (Five Hundred One Rupees Only)';
     if (num === 1100) return 'एक हजार एक सौ रुपये मात्र (One Thousand One Hundred Rupees Only)';
-    if (num === 2100) return 'दो हजार एक सौ रुपये मात्र (Two Thousand One Hundred Rupees Only)';
     if (num === 5100) return 'पांच हजार एक सौ रुपये मात्र (Five Thousand One Hundred Rupees Only)';
-    if (num === 11000) return 'ग्यारह हजार रुपये मात्र (Eleven Thousand Rupees Only)';
     return `${num} रुपये मात्र`;
   };
 
@@ -38,20 +36,20 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({
         <div className="bg-slate-900 text-white px-6 py-4 flex items-center justify-between no-print">
           <span className="text-xs sm:text-sm font-bold text-emerald-400 flex items-center gap-1.5">
             <ShieldCheck className="w-5 h-5" />
-            <span>आधिकारिक दान रसीद एवं प्रमाण पत्र (Official 80G Tax Exemption Certificate)</span>
+            <span>आधिकारिक दान रसीद एवं प्रमाण पत्र (Official Donation Receipt Certificate)</span>
           </span>
 
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="bg-emerald-700 hover:bg-emerald-600 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
+              className="bg-[#1a702b] hover:bg-[#145b22] text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl flex items-center gap-1.5 transition cursor-pointer"
             >
               <Printer className="w-4 h-4" />
-              <span>प्रमाण पत्र प्रिंट करें / Save PDF</span>
+              <span>रसीद प्रिंट करें / Save PDF</span>
             </button>
             <button
               onClick={onClose}
-              className="text-slate-400 hover:text-white p-1 rounded-full"
+              className="text-slate-400 hover:text-white p-1 rounded-full cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -62,7 +60,7 @@ export const ReceiptModal: React.FC<ReceiptModalProps> = ({
         <div className="p-4 bg-slate-100 flex items-center justify-center overflow-x-auto">
           <div className="min-w-[1123px]">
             <CertificateTemplate
-              type="80G_DONATION"
+              type="DONATION"
               name={receipt.donorName}
               amount={receipt.amount}
               amountInWords={getAmountInWords(receipt.amount)}

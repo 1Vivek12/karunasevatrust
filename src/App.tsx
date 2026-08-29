@@ -1,4 +1,3 @@
-import { CtaBannerSection } from './components/CtaBannerSection';
 import React, { useState, useEffect } from 'react';
 import { ActiveTab, ServiceCard, DonationReceipt } from './types';
 import { AnimatePresence } from 'motion/react';
@@ -13,6 +12,8 @@ import { ActivitiesSection } from './components/ActivitiesSection';
 import { GallerySection } from './components/GallerySection';
 import { VolunteerSection } from './components/VolunteerSection';
 import { ContactSection } from './components/ContactSection';
+import { OpinionRequestSection } from './components/OpinionRequestSection';
+import { CtaBannerSection } from './components/CtaBannerSection';
 import { DonateModal } from './components/DonateModal';
 import { ReceiptModal } from './components/ReceiptModal';
 import { Footer } from './components/Footer';
@@ -70,14 +71,14 @@ export default function App() {
       <main className="flex-1">
         {activeTab === 'home' && (
           <>
-            {/* 1. Hero Section (Cinematic background backdrop) */}
+            {/* 1. Hero Section */}
             <Hero
               onOpenDonateModal={handleOpenDonateModal}
               onOpenVolunteer={handleOpenVolunteer}
               language={language}
             />
 
-            {/* 2. Impact Stats Green Bar */}
+            {/* 2. Continuous Moving Animated Impact Stats Bar ("chalta rahega") */}
             <StatsBar language={language} />
 
             {/* 3. Major Works "हमारे प्रमुख कार्य" */}
@@ -104,9 +105,9 @@ export default function App() {
                       key={d.id}
                       className="bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl shrink-0 flex items-center gap-2"
                     >
-                      <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                      <span className="w-2 h-2 rounded-full bg-[#1a702b]"></span>
                       <span className="font-bold text-slate-800">{d.name} ({d.city})</span>
-                      <span className="text-emerald-800 font-extrabold">₹{d.amount}</span>
+                      <span className="text-[#1a702b] font-extrabold">₹{d.amount}</span>
                       <span className="text-slate-500 text-[10px]">({d.cause})</span>
                     </div>
                   ))}
@@ -114,7 +115,7 @@ export default function App() {
               </div>
             </section>
 
-            {/* 6. Decorative Call to Action Banner Section with Side Photos */}
+            {/* 6. Decorative Call to Action Banner Section */}
             <CtaBannerSection
               onOpenDonateModal={handleOpenDonateModal}
               onOpenVolunteer={handleOpenVolunteer}
@@ -150,12 +151,16 @@ export default function App() {
           <GallerySection language={language} />
         )}
 
+        {activeTab === 'opinion' && (
+          <OpinionRequestSection language={language} />
+        )}
+
         {activeTab === 'volunteer' && (
           <VolunteerSection language={language} />
         )}
 
         {activeTab === 'contact' && (
-          <ContactSection language={language} />
+          <ContactSection language={language} onOpenDonateModal={handleOpenDonateModal} />
         )}
       </main>
 
@@ -174,7 +179,7 @@ export default function App() {
         language={language}
       />
 
-      {/* Printable 80G Tax Exemption Receipt Modal */}
+      {/* Printable Official Donation Receipt Modal */}
       <ReceiptModal
         receipt={generatedReceipt}
         onClose={() => setGeneratedReceipt(null)}

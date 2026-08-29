@@ -20,14 +20,13 @@ export const DonateModal: React.FC<DonateModalProps> = ({
 }) => {
   const [formData, setFormData] = useState<DonationFormData>({
     amount: 101,
-    cause: 'भोजन सेवा (Food Service)',
+    cause: 'वृक्षारोपण व पर्यावरण (Tree Plantation)',
     fullName: '',
     phone: '',
     email: '',
     panNumber: '',
-    city: 'नई दिल्ली',
-    paymentMethod: 'upi',
-    is80GRequired: true
+    city: 'गोरखपुर',
+    paymentMethod: 'upi'
   });
 
   const [step, setStep] = useState<1 | 2>(1);
@@ -35,19 +34,18 @@ export const DonateModal: React.FC<DonateModalProps> = ({
   const [isCustomAmount, setIsCustomAmount] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [copiedText, setCopiedText] = useState(false);
   const [createdReceipt, setCreatedReceipt] = useState<DonationReceipt | null>(null);
 
   if (!isOpen) return null;
 
-  const presetAmounts = [101, 501, 1101, 2101, 5101, 11001];
+  const presetAmounts = [101, 501, 1100, 5100];
   const causeOptions = [
-    'भोजन सेवा (Food Distribution)',
-    'स्वास्थ्य सहायता व दवाइयाँ (Health & Medical)',
-    'वस्त्र व कंबल वितरण (Clothes & Blankets)',
-    'निर्धन कन्या विवाह सहयोग (Marriage Support)',
     'वृक्षारोपण व पर्यावरण (Tree Plantation)',
+    'भोजन सेवा (Food Distribution)',
+    'वस्त्र व कंबल वितरण (Clothes & Blankets)',
     'बाल शिक्षा एवं पठन सामग्री (Education Drive)',
+    'स्वास्थ्य सहायता व दवाइयाँ (Health & Medical)',
+    'निर्धन कन्या विवाह सहयोग (Marriage Support)',
     'सामान्य दान (General Trust Support)'
   ];
 
@@ -77,7 +75,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
 
   const handleNextStep = () => {
     if (formData.amount <= 0) {
-      alert(language === 'hi' ? 'कृपया एक वैध दान राशि चुनें' : 'Please select a valid donation amount');
+      alert(language === 'hi' ? 'कृपया एक वैध दान राशि दर्ज करें' : 'Please select or enter a valid donation amount');
       return;
     }
     setStep(2);
@@ -113,22 +111,16 @@ export const DonateModal: React.FC<DonateModalProps> = ({
     }, 1500);
   };
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedText(true);
-    setTimeout(() => setCopiedText(false), 2000);
-  };
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-xl overflow-y-auto">
       <div className="bg-white rounded-3xl shadow-2xl border border-emerald-300 w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in duration-200 my-8">
         
-        {/* Modal Top Header - Light Green Theme */}
+        {/* Modal Top Header */}
         <div className="bg-gradient-to-r from-emerald-100 via-green-100 to-emerald-200 text-slate-900 p-5 sm:p-6 flex items-center justify-between relative border-b border-emerald-300">
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-1.5 bg-emerald-700 text-white text-xs px-2.5 py-0.5 rounded-full font-bold">
+            <div className="inline-flex items-center gap-1.5 bg-[#1a702b] text-white text-xs px-2.5 py-0.5 rounded-full font-bold">
               <ShieldCheck className="w-3.5 h-3.5 text-white" />
-              <span>80G Tax Free Donation</span>
+              <span>100% पारदर्शी सेवा ऑनलाइन दान</span>
             </div>
             <h3 className="text-2xl font-black text-emerald-950 font-['Noto_Sans_Devanagari']">
               {language === 'hi' ? 'ऑनलाइन दान करें (Donate Now)' : 'Donate to Karuna Seva Trust'}
@@ -149,8 +141,8 @@ export const DonateModal: React.FC<DonateModalProps> = ({
         {/* Progress Step Bar */}
         {!isSuccess && (
           <div className="px-6 pt-4 flex items-center justify-center gap-2">
-            <div className={`h-2 rounded-full flex-1 transition-all duration-300 ${step === 1 ? 'bg-emerald-600' : 'bg-emerald-200'}`} />
-            <div className={`h-2 rounded-full flex-1 transition-all duration-300 ${step === 2 ? 'bg-emerald-600' : 'bg-emerald-200'}`} />
+            <div className={`h-2 rounded-full flex-1 transition-all duration-300 ${step === 1 ? 'bg-[#1a702b]' : 'bg-emerald-200'}`} />
+            <div className={`h-2 rounded-full flex-1 transition-all duration-300 ${step === 2 ? 'bg-[#1a702b]' : 'bg-emerald-200'}`} />
           </div>
         )}
 
@@ -163,20 +155,18 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                 <div className="space-y-3">
                   <label className="text-sm font-bold text-slate-800 flex items-center justify-between">
                     <span>{language === 'hi' ? '1. दान राशि चुनें (Select Amount):' : '1. Choose Donation Amount:'}</span>
-                    <span className="text-xs text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded">
-                      80G टैक्स लाभ उपलब्ध
-                    </span>
                   </label>
 
-                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                  {/* Preset Amount Buttons: 101, 501, 1100, 5100 */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {presetAmounts.map((amt) => (
                       <button
                         type="button"
                         key={amt}
                         onClick={() => handleAmountSelect(amt)}
-                        className={`py-2.5 px-2 rounded-xl text-sm font-extrabold transition border ${
+                        className={`py-3 px-4 rounded-xl text-base font-black transition border ${
                           !isCustomAmount && formData.amount === amt
-                            ? 'bg-emerald-700 text-white border-emerald-700 shadow-md scale-102'
+                            ? 'bg-[#1a702b] text-white border-[#1a702b] shadow-md scale-102'
                             : 'bg-slate-50 hover:bg-emerald-50 text-slate-800 border-slate-200 hover:border-emerald-300'
                         }`}
                       >
@@ -185,8 +175,11 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                     ))}
                   </div>
 
-                  {/* Custom amount input toggle */}
-                  <div className="pt-1">
+                  {/* Custom amount input field below */}
+                  <div className="pt-3 bg-emerald-50/60 border border-emerald-200 p-4 rounded-2xl space-y-2">
+                    <span className="text-xs font-extrabold text-[#1a702b] block">
+                      न्यूनतम / इच्छानुसार अन्य राशि दर्ज करने के लिए नीचे लिखें:
+                    </span>
                     {!isCustomAmount ? (
                       <button
                         type="button"
@@ -194,25 +187,25 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                           setIsCustomAmount(true);
                           setFormData((prev) => ({ ...prev, amount: 0 }));
                         }}
-                        className="text-xs text-emerald-700 hover:text-emerald-800 font-bold underline"
+                        className="w-full bg-white hover:bg-emerald-100 text-[#1a702b] border-2 border-emerald-300 font-extrabold text-sm py-2.5 px-4 rounded-xl shadow-2xs transition text-center cursor-pointer"
                       >
-                        + अन्य राशि दर्ज करें (Enter Custom Amount)
+                        ✏️ अपनी इच्छानुसार अन्य राशि दर्ज करें (Enter Custom Amount)
                       </button>
                     ) : (
                       <div className="flex items-center gap-2">
-                        <span className="text-lg font-bold text-slate-700">₹</span>
+                        <span className="text-xl font-black text-slate-800">₹</span>
                         <input
                           type="text"
-                          placeholder="उदा. 2500"
+                          placeholder="उदा. 2100"
                           value={customAmountInput}
                           onChange={handleCustomAmountChange}
-                          className="flex-1 px-4 py-2 border-2 border-emerald-500 rounded-xl focus:outline-none text-lg font-bold text-slate-800"
+                          className="flex-1 px-4 py-2.5 border-2 border-[#1a702b] rounded-xl focus:outline-none text-xl font-bold text-slate-800 bg-white"
                           autoFocus
                         />
                         <button
                           type="button"
-                          onClick={() => handleAmountSelect(1100)}
-                          className="text-xs bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-2 rounded-xl font-bold"
+                          onClick={() => handleAmountSelect(101)}
+                          className="text-xs bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-3 rounded-xl font-bold"
                         >
                           रद्द करें
                         </button>
@@ -228,7 +221,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                   <select
                     value={formData.cause}
                     onChange={(e) => setFormData({ ...formData, cause: e.target.value })}
-                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold text-slate-800 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm font-semibold text-slate-800 focus:outline-none focus:border-[#1a702b] focus:ring-2 focus:ring-emerald-100"
                   >
                     {causeOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -242,7 +235,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                   <button
                     type="button"
                     onClick={handleNextStep}
-                    className="bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-sm px-6 py-3 rounded-xl shadow transition flex items-center gap-2 cursor-pointer"
+                    className="bg-[#1a702b] hover:bg-[#145b22] text-white font-extrabold text-sm px-6 py-3 rounded-xl shadow transition flex items-center gap-2 cursor-pointer"
                   >
                     <span>{language === 'hi' ? 'विवरण भरें (Next)' : 'Fill Details (Next)'}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -250,7 +243,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                 </div>
               </div>
             ) : (
-              /* STEP 2: Donor Details, Tax Exemption PAN, & Payment Method */
+              /* STEP 2: Donor Details & Payment Method */
               <div className="space-y-6">
                 <div className="space-y-3">
                   <label className="text-sm font-bold text-slate-800">
@@ -265,7 +258,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                         placeholder="पूरा नाम (Full Name) *"
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-600"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a702b]"
                       />
                     </div>
                     <div>
@@ -275,7 +268,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                         placeholder="मोबाइल नंबर (Phone) *"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-600"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a702b]"
                       />
                     </div>
                     <div>
@@ -284,16 +277,16 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                         placeholder="ईमेल (Email Optional)"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-600"
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a702b]"
                       />
                     </div>
                     <div>
                       <input
                         type="text"
-                        placeholder="पैन नंबर (PAN for 80G Tax Receipt)"
-                        value={formData.panNumber}
-                        onChange={(e) => setFormData({ ...formData, panNumber: e.target.value.toUpperCase() })}
-                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-emerald-600 uppercase"
+                        placeholder="शहर / पता (City/Address)"
+                        value={formData.city}
+                        onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                        className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-[#1a702b]"
                       />
                     </div>
                   </div>
@@ -319,7 +312,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                   <button
                     type="submit"
                     disabled={isProcessing}
-                    className="bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-extrabold text-base px-8 py-3.5 rounded-full shadow-lg shadow-emerald-800/20 hover:shadow-xl transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                    className="bg-[#1a702b] hover:bg-[#145b22] active:bg-emerald-900 text-white font-extrabold text-base px-8 py-3.5 rounded-full shadow-lg shadow-emerald-800/20 hover:shadow-xl transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     {isProcessing ? (
                       <>
@@ -328,7 +321,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                       </>
                     ) : (
                       <>
-                        <Heart className="w-5 h-5 fill-white" />
+                        <Heart className="w-5 h-5 fill-white text-white" />
                         <span>₹{formData.amount || 0} का दान करें</span>
                       </>
                     )}
@@ -342,7 +335,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
           /* Success Screen & Receipt Generation Trigger */
           <div className="p-8 text-center space-y-6">
             <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-700 animate-bounce">
-              <CheckCircle2 className="w-12 h-12" />
+              <CheckCircle2 className="w-12 h-12 text-[#1a702b]" />
             </div>
 
             <div className="space-y-2">
@@ -353,7 +346,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                 आपका हार्दिक धन्यवाद, {formData.fullName}!
               </h4>
               <p className="text-slate-600 text-sm max-w-md mx-auto">
-                करुणा सेवा ट्रस्ट आपके योगदान के लिए आपका आभार व्यक्त करता है। आपका यह दान <strong className="text-emerald-800">{formData.cause}</strong> में उपयोग किया जाएगा।
+                करुणा सेवा ट्रस्ट आपके योगदान के लिए आपका आभार व्यक्त करता है। आपका यह दान <strong className="text-[#1a702b]">{formData.cause}</strong> में उपयोग किया जाएगा।
               </p>
             </div>
 
@@ -361,7 +354,7 @@ export const DonateModal: React.FC<DonateModalProps> = ({
               <div className="bg-slate-50 border border-slate-200 p-4 rounded-2xl text-left max-w-sm mx-auto text-xs space-y-1.5">
                 <div className="flex justify-between border-b pb-1 font-bold text-slate-800">
                   <span>रसीद संख्या:</span>
-                  <span className="text-emerald-800 font-mono">{createdReceipt.receiptNo}</span>
+                  <span className="text-[#1a702b] font-mono">{createdReceipt.receiptNo}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>दान राशि:</span>
@@ -385,10 +378,10 @@ export const DonateModal: React.FC<DonateModalProps> = ({
                     onGenerateReceipt(createdReceipt);
                     onClose();
                   }}
-                  className="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-6 py-3 rounded-xl shadow flex items-center justify-center gap-2 transition"
+                  className="w-full sm:w-auto bg-[#1a702b] hover:bg-[#145b22] text-white font-bold px-6 py-3 rounded-xl shadow flex items-center justify-center gap-2 transition"
                 >
                   <Download className="w-4 h-4" />
-                  <span>80G दान रसीद डाउनलोड करें</span>
+                  <span>दान रसीद डाउनलोड करें</span>
                 </button>
               )}
 

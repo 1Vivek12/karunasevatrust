@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ActiveTab } from '../types';
 import { TRUST_INFO } from '../data/ngoData';
-import { Heart, Phone, Mail, Menu, X, Globe, ShieldCheck, Users } from 'lucide-react';
+import { Heart, Phone, Mail, Menu, X, Globe, ShieldCheck, Users, MessageSquare } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: ActiveTab;
@@ -26,6 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'works', labelHi: 'हमारे कार्य', labelEn: 'Our Work' },
     { id: 'activities', labelHi: 'गतिविधियाँ', labelEn: 'Activities' },
     { id: 'gallery', labelHi: 'गैलरी', labelEn: 'Gallery' },
+    { id: 'opinion', labelHi: 'सुझाव व क्षेत्र अनुरोध', labelEn: 'Suggestions & Request' },
     { id: 'volunteer', labelHi: 'स्वयंसेवक बनें', labelEn: 'Volunteer' },
     { id: 'contact', labelHi: 'संपर्क करें', labelEn: 'Contact' },
   ];
@@ -38,18 +39,18 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="sticky top-0 z-40 bg-white shadow-md border-b border-emerald-100">
-      {/* Top Notification / Info Strip - Light subtle style matching mockup */}
+      {/* Top Notification / Info Strip */}
       <div className="bg-[#eef7f0] border-b border-emerald-100 text-[#1a702b] text-xs py-1 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-4 flex-wrap">
-            <span className="flex items-center gap-1 font-medium">
+            <span className="flex items-center gap-1 font-semibold">
               <ShieldCheck className="w-3.5 h-3.5 text-[#1a702b]" />
               <span>पंजीकृत न्यास संख्या: {TRUST_INFO.regNo}</span>
             </span>
             <span className="hidden md:inline text-emerald-400">•</span>
             <span className="hidden md:inline-flex items-center gap-1">
-              <span className="bg-[#1a702b] text-white text-[10px] px-1.5 py-0.5 rounded font-bold">80G Tax Free</span>
-              <span>दान पर 80G आयकर छूट उपलब्ध</span>
+              <span className="bg-[#1a702b] text-white text-[10px] px-1.5 py-0.5 rounded font-bold">100% पारदर्शी</span>
+              <span>मानवता की सेवा ही हमारा संकल्प</span>
             </span>
           </div>
 
@@ -79,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Main Header Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         
-        {/* Logo Section matching Mockup */}
+        {/* Logo Section */}
         <div 
           onClick={() => handleNavClick('home')}
           className="flex items-center gap-3 cursor-pointer group select-none"
@@ -104,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
 
-        {/* Desktop Navigation Links matching Mockup with active underline */}
+        {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
@@ -112,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`px-3 py-2 rounded-lg text-sm font-bold transition-all duration-200 relative ${
+                className={`px-3 py-2 rounded-lg text-xs xl:text-sm font-bold transition-all duration-200 relative ${
                   isActive
                     ? 'text-[#1a702b] bg-emerald-50/80 font-extrabold'
                     : 'text-slate-700 hover:text-[#1a702b] hover:bg-slate-50'
@@ -127,21 +128,21 @@ export const Navbar: React.FC<NavbarProps> = ({
           })}
         </nav>
 
-        {/* Right CTA Button matching Mockup */}
+        {/* Right CTA Button */}
         <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={() => { setActiveTab('volunteer'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="hidden xl:flex bg-emerald-50 hover:bg-emerald-100/70 text-[#1a702b] border border-emerald-300 font-extrabold text-sm px-4 py-2 rounded-lg shadow-2xs transition items-center gap-1.5 cursor-pointer"
+            className="hidden xl:flex bg-emerald-50 hover:bg-emerald-100/70 text-[#1a702b] border border-emerald-300 font-extrabold text-xs xl:text-sm px-3.5 py-2 rounded-lg shadow-2xs transition items-center gap-1.5 cursor-pointer"
           >
             <Users className="w-4 h-4 text-[#1a702b]" aria-hidden="true" />
             <span>{language === 'hi' ? 'स्वयंसेवक बनें' : 'Join Us'}</span>
           </button>
           
-          {/* Donate Button (Solid Green rounded-lg matching mockup) */}
+          {/* Donate Button */}
           <button
             onClick={onOpenDonateModal}
             aria-haspopup="dialog"
-            className="bg-[#1a702b] hover:bg-[#145b22] text-white font-extrabold px-6 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2 group cursor-pointer text-sm sm:text-base"
+            className="bg-[#1a702b] hover:bg-[#145b22] text-white font-extrabold px-5 sm:px-6 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2 group cursor-pointer text-xs sm:text-sm"
           >
             <Heart className="w-4 h-4 fill-white text-white group-hover:scale-110 transition-transform" aria-hidden="true" />
             <span>{language === 'hi' ? 'दान करें' : 'Donate Now'}</span>
@@ -169,7 +170,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => handleNavClick(item.id)}
                 className={`w-full text-left px-4 py-2.5 rounded-lg text-base font-medium flex items-center justify-between ${
                   isActive
-                    ? 'bg-emerald-700 text-white font-bold'
+                    ? 'bg-[#1a702b] text-white font-bold'
                     : 'text-slate-700 hover:bg-emerald-50 hover:text-emerald-800'
                 }`}
               >
@@ -187,7 +188,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setActiveTab('volunteer');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="w-full bg-emerald-50/20 text-emerald-800 border border-emerald-600/30 font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 shadow-xs min-h-[44px]"
+              className="w-full bg-emerald-50/40 text-emerald-800 border border-emerald-600/30 font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 shadow-xs min-h-[44px]"
             >
               <Users className="w-5 h-5 text-emerald-700" aria-hidden="true" />
               <span>{language === 'hi' ? 'स्वयंसेवक बनें' : 'Join Us'}</span>
@@ -200,7 +201,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onOpenDonateModal();
               }}
               aria-haspopup="dialog"
-              className="w-full bg-gradient-to-r from-emerald-700 via-emerald-800 to-[#D4AF37] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-md min-h-[44px]"
+              className="w-full bg-[#1a702b] text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 shadow-md min-h-[44px]"
             >
               <Heart className="w-5 h-5 fill-white text-white" aria-hidden="true" />
               <span>{language === 'hi' ? 'दान करें (Donate Now)' : 'Donate Now'}</span>

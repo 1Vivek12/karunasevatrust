@@ -2,8 +2,8 @@ import React from 'react';
 import { TRUST_INFO } from '../data/ngoData';
 
 export interface CertificateTemplateProps {
-  type: '80G_DONATION' | 'VOLUNTEER' | 'CSR_IMPACT';
-  name?: string; // used for donor or volunteer or company name
+  type: 'DONATION' | 'VOLUNTEER' | 'CSR_IMPACT';
+  name?: string;
   amount?: number;
   amountInWords?: string;
   panNo?: string;
@@ -55,10 +55,10 @@ export const CertificateTemplate: React.FC<CertificateTemplateProps> = ({
                 करुणा सेवा ट्रस्ट (पंजीकृत न्यास)
               </h1>
               <p className="text-sm font-bold text-slate-600 tracking-wider font-sans uppercase">
-                Karuna Seva Trust (Regd.)
+                Karuna Seva Trust (Regd. Govt. NGO)
               </p>
               <p className="text-[10px] text-emerald-800 font-semibold font-sans mt-0.5">
-                Regd No: 389201004921 • 80G Benefit: TRUST/80G/2023/10492
+                Regd No: NGO/KST/2018/84920 • PAN: {TRUST_INFO.panNo}
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@ export const CertificateTemplate: React.FC<CertificateTemplateProps> = ({
 
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col justify-center items-center text-center px-12 space-y-6 z-10">
-          {type === '80G_DONATION' && (
+          {type === 'DONATION' && (
             <div className="space-y-4 w-full">
               <h2 className="text-2xl font-bold text-[#D4AF37] font-['Noto_Sans_Devanagari'] uppercase tracking-widest">
                 दान प्रमाण पत्र / DONATION RECEIPT CERTIFICATE
@@ -78,19 +78,19 @@ export const CertificateTemplate: React.FC<CertificateTemplateProps> = ({
               <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto text-sm text-left bg-emerald-50/50 border border-emerald-100 p-4 rounded-xl font-sans mt-4">
                 <div>
                   <span className="text-slate-500 block text-xs">Receipt Number (रसीद सं.):</span>
-                  <span className="font-bold text-[#064e3b]">{receiptNo || 'KST-80G-' + Math.floor(100000 + Math.random() * 900000)}</span>
+                  <span className="font-bold text-[#064e3b]">{receiptNo || 'KST-' + Math.floor(100000 + Math.random() * 900000)}</span>
                 </div>
                 <div>
                   <span className="text-slate-500 block text-xs">Date of Receipt (दिनांक):</span>
                   <span className="font-bold text-slate-800">{date}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block text-xs">PAN of Donor (दाता का पैन):</span>
-                  <span className="font-bold text-slate-800 uppercase">{panNo || 'N/A'}</span>
+                  <span className="text-slate-500 block text-xs">Donor City / Address:</span>
+                  <span className="font-bold text-slate-800">गोरखपुर / Bharat</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block text-xs">80G Reg Number:</span>
-                  <span className="font-bold text-emerald-800">TRUST/80G/2023/10492</span>
+                  <span className="text-slate-500 block text-xs">Trust PAN Number:</span>
+                  <span className="font-bold text-emerald-800">{TRUST_INFO.panNo}</span>
                 </div>
               </div>
             </div>
@@ -171,11 +171,11 @@ export const CertificateTemplate: React.FC<CertificateTemplateProps> = ({
 
             {/* Signature Placeholder */}
             <div className="flex flex-col justify-end items-center">
-              <div className="font-['Rozha_One'] text-slate-700 text-sm italic mb-1 select-none pointer-events-none">
-                Vijay P. Sharma
+              <div className="font-[#1a702b] font-bold text-slate-800 text-sm mb-1 select-none pointer-events-none">
+                अभिनव कुमार
               </div>
               <div className="w-28 h-[1px] bg-slate-400 mb-1" />
-              <span className="font-bold text-[#064e3b] text-[10px]">मुख्य न्यासी / Chairperson</span>
+              <span className="font-bold text-[#064e3b] text-[10px]">निदेशक / Director</span>
             </div>
           </div>
         </div>
