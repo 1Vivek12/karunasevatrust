@@ -278,7 +278,7 @@ export const TRUSTEES_DATA: TrusteeMember[] = [
     id: 't1',
     name: 'श्री अभिनव कुमार',
     role: 'निदेशक (Director)',
-    image: '/assets/founder.jpg',
+    image: '/assets/abhinav_kumar.jpg',
     bio: '7 वर्षों का अनुभव। करुणा सेवा ट्रस्ट के विज़न, प्रबंधन एवं सामाजिक कल्याण अभियानों का कुशल नेतृत्व।'
   },
   {
