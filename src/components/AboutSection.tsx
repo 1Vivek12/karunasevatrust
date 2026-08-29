@@ -39,8 +39,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate, langua
             <h3 className="text-2xl font-bold text-slate-900 font-['Noto_Sans_Devanagari']">
               {language === 'hi' ? 'हमारा लक्ष्य (Our Mission)' : 'Our Mission'}
             </h3>
-            <p className="text-slate-600 leading-relaxed text-sm">
-              कोई भी व्यक्ति भूखा न सोए, हर मरीज को प्राथमिक चिकित्सा मिले, हर बेघर को तन ढकने का वस्त्र मिले और हर बच्चे को शिक्षा का प्रकाश मिले। पर्यावरण का संरक्षण कर आने वाली पीढ़ियों को स्वच्छ वायु व हरियाली सौंपना हमारा मुख्य ध्येय है।
+            <p className="text-slate-600 leading-relaxed text-sm font-['Noto_Sans_Devanagari'] font-medium">
+              करुणा केवल एक शब्द नहीं, हमारा जीवन-ध्येय है। हमारा प्रयास है कि कोई असहाय अकेला महसूस न करे—चाहे वह अन्नपूर्णा रसोई से किसी भूखे की तृप्ति हो, किसी बीमार की सेवा, बेघरों को वस्त्र, गरीब कन्याओं के विवाह में सम्बल, या पर्यावरण को बचाने के लिए रोपा गया हर एक नन्हा पौधा। सेवा ही हमारा सबसे बड़ा धर्म है।
             </p>
           </div>
 
